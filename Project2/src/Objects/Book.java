@@ -23,12 +23,12 @@ public class Book {
     private String editorial;
     private String year;
     private String edition;
-    private String category;    // Change to a Category object
+    private Category category;    // Change to a Category object
     private String language;
     private final int userID;
 
     public Book(int _ISBN, String _title, String _author, String _editorial, 
-            String _year, String _edition, String _category, String _language, 
+            String _year, String _edition, Category _category, String _language, 
             int _userID) {
         this.ISBN = _ISBN;
         this.title = _title;
@@ -89,11 +89,11 @@ public class Book {
         this.edition = edition;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
