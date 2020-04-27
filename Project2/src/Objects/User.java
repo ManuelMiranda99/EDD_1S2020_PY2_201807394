@@ -12,6 +12,10 @@ Use it as you like and have fun reading it ^^
  */
 package Objects;
 
+/**
+ *
+ * @author manuel
+ */
 public class User {
 
     /*
