@@ -22,7 +22,7 @@ import Objects.Category;
 public class AVLNode {
     public AVLNode right, left;
     public int balance;
-    private final Category category;
+    private Category category;
     private BTree books;
     
     public AVLNode(Category _category){
@@ -30,6 +30,14 @@ public class AVLNode {
         this.category = _category;
         //this.books = new BTree(5);
         this.balance = 1;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setBooks(BTree books) {
+        this.books = books;
     }
 
     public Category getCategory() {

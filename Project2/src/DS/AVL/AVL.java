@@ -75,40 +75,21 @@ public class AVL {
         if(root == null)
             return new AVLNode(_category);
 
-        // _category.getName > root.getCategory.getName 
+        // _category.getName < root.getCategory.getName 
         if(_category.getName().compareToIgnoreCase(root.getCategory().getName()) < 0){
             root.left = RecursiveAdd(root.left, _category);
         }
-        // _category.getName < root.getCategory.getName
+        // _category.getName > root.getCategory.getName
         else if(_category.getName().compareToIgnoreCase(root.getCategory().getName()) > 0){
             root.right = RecursiveAdd(root.right, _category);
         }
         // _category.getName == root.getCategory.getName
         else{
+            // Duplicated category
             return root;
         }
         
-        root.balance = 1 + MAX(height(root.left), height(root.right));
-        
-        int balance = GetBalance(root);
-        
-        if(balance > 1 && _category.getName().compareToIgnoreCase(root.left.getCategory().getName()) < 0)
-            return RightRotate(root);
-        
-        if(balance < -1 && _category.getName().compareToIgnoreCase(root.right.getCategory().getName()) > 0)
-            return LeftRotate(root);
-        
-        if(balance > 1 && _category.getName().compareToIgnoreCase(root.left.getCategory().getName()) > 0){
-            root.left = LeftRotate(root.left);
-            return RightRotate(root);
-        }
-        
-        if(balance < -1 && _category.getName().compareToIgnoreCase(root.right.getCategory().getName()) < 0){
-            root.right = RightRotate(root.right);
-            return LeftRotate(root);
-        }
-        
-        return root;
+        return Balance(root, _category);               
     }
     
     public AVLNode SearchCategory(String _category){        
@@ -139,20 +120,93 @@ public class AVL {
     }
     
     public AVLNode RecursiveDeleteCategory(AVLNode root, String _category){
+        // Non existing node
         if(root == null)
             return root;
         
-        // _category.getName > root.getCategory.getName 
+        // _category.getName < root.getCategory.getName 
         if(_category.compareToIgnoreCase(root.getCategory().getName()) < 0){
             root.left = RecursiveDeleteCategory(root.left, _category);
         }
-        // _category.getName < root.getCategory.getName
+        // _category.getName > root.getCategory.getName
         else if(_category.compareToIgnoreCase(root.getCategory().getName()) > 0){
             root.right = RecursiveDeleteCategory(root.right, _category);
         }
         // _category.getName == root.getCategory.getName
         else{
-            
+            // DELETE NODE
+            // Node without one or more childs
+            if(root.left == null || root.right == null){
+                AVLNode aux = null;
+                // Leave node
+                if(root.left == null && root.right == null){
+                    root = null;
+                }
+                // Node with right child
+                else if(root.left == null){
+                    root = aux.right;
+                }
+                // Node with left child
+                else{
+                    root = aux.left;
+                }
+            }
+            // Node with both Childs, change node with the minor element in the right
+            else{
+                AVLNode aux = MINNode(root.right);
+                
+                root.setCategory(aux.getCategory());
+                root.setBooks(aux.getBooks());
+                
+                root.right = RecursiveDeleteCategory(root.right, aux.getCategory().getName());
+            }
+        }
+        
+        if(root == null)
+            return root;
+        
+        root.balance = 1 + MAX(height(root.left), height(root.right));
+        
+        int balance = GetBalance(root);
+        
+        if(balance > 1 && GetBalance(root.left) >= 0)
+            return RightRotate(root);
+        
+        if(balance > 1 && GetBalance(root.left) < 0){
+            root.left = LeftRotate(root.left);
+            return RightRotate(root);
+        }
+          
+        if (balance < -1 && GetBalance(root.right) <= 0)  
+            return LeftRotate(root);  
+  
+        if (balance < -1 && GetBalance(root.right) > 0){  
+            root.right = RightRotate(root.right);  
+            return LeftRotate(root);  
+        }
+        
+        return root;
+    }
+    
+    private AVLNode Balance(AVLNode root, Category _category){
+        root.balance = 1 + MAX(height(root.left), height(root.right));
+        
+        int balance = GetBalance(root);
+        
+        if(balance > 1 && _category.getName().compareToIgnoreCase(root.left.getCategory().getName()) < 0)
+            return RightRotate(root);
+        
+        if(balance < -1 && _category.getName().compareToIgnoreCase(root.right.getCategory().getName()) > 0)
+            return LeftRotate(root);
+        
+        if(balance > 1 && _category.getName().compareToIgnoreCase(root.left.getCategory().getName()) > 0){
+            root.left = LeftRotate(root.left);
+            return RightRotate(root);
+        }
+        
+        if(balance < -1 && _category.getName().compareToIgnoreCase(root.right.getCategory().getName()) < 0){
+            root.right = RightRotate(root.right);
+            return LeftRotate(root);
         }
         return root;
     }
