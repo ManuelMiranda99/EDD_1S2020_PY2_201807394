@@ -111,29 +111,86 @@ public class AVL {
         return root;
     }
     
-    public void SearchCategory(String _category){
-        
+    public AVLNode SearchCategory(String _category){        
+        return RecursiveGet(root, _category);
     }
     
     private AVLNode RecursiveGet(AVLNode root, String _category){
+        if(root == null || root.getCategory().getName().equals(_category)){
+            return root;
+        }        
+        // root > key
+        if(root.getCategory().getName().compareTo(_category) > 0)
+            return RecursiveGet(root.left, _category);
+        return RecursiveGet(root.right, _category);
+    }
+    
+    private AVLNode MINNode(AVLNode root){
+        AVLNode current = root;
         
-        return null;
+        while(current.left != null)
+            current = current.left;
+        
+        return current;
     }
     
     public void DeleteCategory(String _category){
+        root = RecursiveDeleteCategory(root, _category);
+    }
+    
+    public AVLNode RecursiveDeleteCategory(AVLNode root, String _category){
+        if(root == null)
+            return root;
         
+        // _category.getName > root.getCategory.getName 
+        if(_category.compareToIgnoreCase(root.getCategory().getName()) < 0){
+            root.left = RecursiveDeleteCategory(root.left, _category);
+        }
+        // _category.getName < root.getCategory.getName
+        else if(_category.compareToIgnoreCase(root.getCategory().getName()) > 0){
+            root.right = RecursiveDeleteCategory(root.right, _category);
+        }
+        // _category.getName == root.getCategory.getName
+        else{
+            
+        }
+        return root;
     }
     
     /*----------REPORTS----------*/
     public void PreOrderReport(){
-        
+        RecursivePreOrder(root);
+    }
+    
+    private void RecursivePreOrder(AVLNode root){
+        if(root != null){
+            System.out.println(root.getCategory().getName());
+            RecursivePreOrder(root.left);
+            RecursivePreOrder(root.right);
+        }
     }
     
     public void InOrderReport(){
-        
+        RecursiveInOrder(root);
+    }
+    
+    private void RecursiveInOrder(AVLNode root){
+        if(root != null){            
+            RecursiveInOrder(root.left);
+            System.out.println(root.getCategory().getName());
+            RecursiveInOrder(root.right);
+        }
     }
     
     public void PostOrderReport(){
-        
+        RecursivePostOrder(root);
+    }
+    
+    private void RecursivePostOrder(AVLNode root){
+        if(root != null){            
+            RecursivePostOrder(root.left);            
+            RecursivePostOrder(root.right);
+            System.out.println(root.getCategory().getName());
+        }
     }
 }
