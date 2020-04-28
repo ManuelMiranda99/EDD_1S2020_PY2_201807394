@@ -18,11 +18,21 @@ package Objects;
  */
 public class Category {
     private final String name;
+    private int count;
     private final int userID;
 
     public Category(String name, int userID) {
         this.name = name;
         this.userID = userID;
+        this.count = 0;
+    }
+    
+    public void AddBook(){
+        this.count++;
+    }
+    
+    public void DeleteBook(){
+        this.count--;
     }
 
     public String getName() {
