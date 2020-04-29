@@ -115,51 +115,57 @@ public class AVL {
         return current;
     }
     
-    public void DeleteCategory(String _category){
-        root = RecursiveDeleteCategory(root, _category);
+    public void DeleteCategory(String _category, int _id){
+        root = RecursiveDeleteCategory(root, _category, _id);
     }
     
-    public AVLNode RecursiveDeleteCategory(AVLNode root, String _category){
+    public AVLNode RecursiveDeleteCategory(AVLNode root, String _category, int _id){
         // Non existing node
         if(root == null)
             return root;
         
         // _category.getName < root.getCategory.getName 
         if(_category.compareToIgnoreCase(root.getCategory().getName()) < 0){
-            root.left = RecursiveDeleteCategory(root.left, _category);
+            root.left = RecursiveDeleteCategory(root.left, _category, _id);
         }
         // _category.getName > root.getCategory.getName
         else if(_category.compareToIgnoreCase(root.getCategory().getName()) > 0){
-            root.right = RecursiveDeleteCategory(root.right, _category);
+            root.right = RecursiveDeleteCategory(root.right, _category, _id);
         }
         // _category.getName == root.getCategory.getName
         else{
-            // DELETE NODE
-            // Node without one or more childs
-            if(root.left == null || root.right == null){
-                AVLNode aux = null;
-                // Leave node
-                if(root.left == null && root.right == null){
-                    root = null;
-                }
-                // Node with right child
-                else if(root.left == null){
-                    root = aux.right;
-                }
-                // Node with left child
-                else{
-                    root = aux.left;
-                }
+            // If the user that try to eliminate the category is different that the one who create it
+            if(_id != root.getCategory().getUserID()){
+                return root;
             }
-            // Node with both Childs, change node with the minor element in the right
             else{
-                AVLNode aux = MINNode(root.right);
-                
-                root.setCategory(aux.getCategory());
-                root.setBooks(aux.getBooks());
-                
-                root.right = RecursiveDeleteCategory(root.right, aux.getCategory().getName());
-            }
+                // DELETE NODE
+                // Node without one or more childs
+                if(root.left == null || root.right == null){
+                    AVLNode aux = null;
+                    // Leave node
+                    if(root.left == null && root.right == null){
+                        root = null;
+                    }
+                    // Node with right child
+                    else if(root.left == null){
+                        root = aux.right;
+                    }
+                    // Node with left child
+                    else{
+                        root = aux.left;
+                    }
+                }
+                // Node with both Childs, change node with the minor element in the right
+                else{
+                    AVLNode aux = MINNode(root.right);
+
+                    root.setCategory(aux.getCategory());
+                    root.setBooks(aux.getBooks());
+
+                    root.right = RecursiveDeleteCategory(root.right, aux.getCategory().getName(), _id);
+                }
+            }            
         }
         
         if(root == null)
