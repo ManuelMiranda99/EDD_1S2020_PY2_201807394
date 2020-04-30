@@ -12,7 +12,7 @@ Use it as you like and have fun reading it ^^
  */
 package Interface;
 
-import java.awt.Color;
+import static project2.Project2.hashTable;
 
 /**
  *
@@ -23,11 +23,10 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public Login() {
-        this.setUndecorated(true);
+    public Login() {        
         initComponents();        
         this.setContentPane(this.jPanel3);
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);        
     }
 
     /**
@@ -44,13 +43,13 @@ public class Login extends javax.swing.JFrame {
         btnClose1 = new javax.swing.JButton();
         pnlLogin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
         txtPass = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnRegistry = new javax.swing.JButton();
+        txtID = new javax.swing.JTextField();
         btnLoadUsers = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
@@ -60,7 +59,7 @@ public class Login extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnServer.setBackground(new java.awt.Color(255, 255, 255));
-        btnServer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/wifi (1).png"))); // NOI18N
+        btnServer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/wifi (1).png"))); // NOI18N
         btnServer.setBorderPainted(false);
         btnServer.setContentAreaFilled(false);
         btnServer.setFocusPainted(false);
@@ -89,11 +88,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("LOGIN");
         pnlLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        txtID.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        pnlLogin.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 360, 40));
-
         txtPass.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        txtPass.setText("jPasswordField1");
         pnlLogin.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 360, 40));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -138,14 +133,22 @@ public class Login extends javax.swing.JFrame {
         });
         pnlLogin.add(btnRegistry, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, -1, -1));
 
-        jPanel3.add(pnlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 430, 460));
+        txtID.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlLogin.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 360, 40));
 
-        btnLoadUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/download (1).png"))); // NOI18N
+        jPanel3.add(pnlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 430, 460));
+
+        btnLoadUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/download (1).png"))); // NOI18N
         btnLoadUsers.setBorderPainted(false);
         btnLoadUsers.setContentAreaFilled(false);
+        btnLoadUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadUsersActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnLoadUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 570, 80, 60));
 
-        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/fondo.jpg"))); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/fondo.jpg"))); // NOI18N
         jPanel3.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,12 +174,20 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClose1ActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        
-        String id = txtID.getText();
-        String pass = txtPass.getText();
-        
-        
-        
+        try{
+            int id = Integer.parseInt(txtID.getText());
+            String pass = txtPass.getText();
+
+            if(hashTable.Login(id, pass)){
+                // Succesful Login
+            }
+            else{
+                // Non existing user
+            }
+        }
+        catch(Exception e){
+            System.out.println("Carnet invalido");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnRegistryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistryActionPerformed
@@ -186,6 +197,12 @@ public class Login extends javax.swing.JFrame {
         re.show();
         
     }//GEN-LAST:event_btnRegistryActionPerformed
+
+    private void btnLoadUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadUsersActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_btnLoadUsersActionPerformed
 
     /**
      * @param args the command line arguments
