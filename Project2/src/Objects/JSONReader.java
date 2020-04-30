@@ -30,11 +30,14 @@ public class JSONReader {
     
     public void ReadUserJSON(){
         try {
-            JSONParser parser = new JSONParser();
-            JSONArray json = (JSONArray) parser.parse(new FileReader(OpenFile()));
+            JSONParser parser = new JSONParser();           
             
-            for(int i=0; i < json.size(); i++){
-                JSONObject jsonO = (JSONObject)json.get(i);
+            JSONObject json = (JSONObject) parser.parse(new FileReader(OpenFile()));
+            
+            JSONArray users = (JSONArray) json.get("Usuarios");
+            
+            for(int i=0; i < users.size(); i++){
+                JSONObject jsonO = (JSONObject)users.get(i);
                 
                 int id = Integer.parseInt(jsonO.get("Carnet").toString());
                 String name = jsonO.get("Nombre").toString();
@@ -56,10 +59,13 @@ public class JSONReader {
     public void ReadBooksJSON(int _idUser){
         try {
             JSONParser parser = new JSONParser();
-            JSONArray json = (JSONArray) parser.parse(new FileReader(OpenFile()));
             
-            for(int i=0; i < json.size(); i++){
-                JSONObject jsonO = (JSONObject)json.get(i);
+            JSONObject json = (JSONObject) parser.parse(new FileReader(OpenFile()));
+            
+            JSONArray books = (JSONArray) json.get("libros");
+            
+            for(int i=0; i < books.size(); i++){
+                JSONObject jsonO = (JSONObject)books.get(i);
                 
                 int id = Integer.parseInt(jsonO.get("ISBN").toString());
                 String year = jsonO.get("Año").toString();
@@ -74,7 +80,7 @@ public class JSONReader {
                 
                 Book newBook = new Book(id, title, author, editorial, year, edition, _category, language, _idUser);
                 
-                if(Project2.avl.SearchCategory(category) != null){
+                if(Project2.avl.SearchCategory(category) == null){
                     Project2.avl.AddCategory(_category);
                 }
                 Project2.avl.SearchCategory(category).getBooks().InsertBook(newBook);
