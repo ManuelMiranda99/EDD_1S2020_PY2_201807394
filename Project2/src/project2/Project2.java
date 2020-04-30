@@ -13,10 +13,13 @@ Use it as you like and have fun reading it ^^
 
 package project2;
 
+import Interface.Login;
+
 public class Project2 {
     
     public static void main(String[] args) {
-        
+        Login l = new Login();
+        l.show();
     }
     
 }
