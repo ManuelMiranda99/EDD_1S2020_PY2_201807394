@@ -212,14 +212,18 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pnlBooksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBooksMouseClicked
-           if(activePanel != 2){
-               activePanel = 2;
-               
-               System.out.println("Books");
-               
-               // Change panel
-               pnlContent = new pnlBooksP();
-           }
+        if(activePanel != 2){
+            activePanel = 2;
+
+            System.out.println("Books");
+
+            // Change panel
+            pnlContent.removeAll();
+            pnlBooksP booksPanel = new pnlBooksP(this);
+            pnlContent.add(booksPanel);
+            pnlContent.revalidate();
+            pnlContent.repaint();
+        }
     }//GEN-LAST:event_pnlBooksMouseClicked
 
     private void btnClose1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClose1ActionPerformed
@@ -236,7 +240,8 @@ public class Principal extends javax.swing.JFrame {
             pnlContent.removeAll();
             pnlUserP userPanel = new pnlUserP(this);
             pnlContent.add(userPanel);
-            pnlContent.validate();
+            pnlContent.revalidate();
+            pnlContent.repaint();
         }        
     }//GEN-LAST:event_pnlUserMouseClicked
 
@@ -247,7 +252,11 @@ public class Principal extends javax.swing.JFrame {
             System.out.println("Category");
             
             // Change Panel
-            pnlContent = new pnlCategoryP();
+            pnlContent.removeAll();
+            pnlCategoryP categoryPanel = new pnlCategoryP(this);
+            pnlContent.add(categoryPanel);
+            pnlContent.revalidate();
+            pnlContent.repaint();
         }        
     }//GEN-LAST:event_pnlCategoryMouseClicked
 
@@ -258,7 +267,11 @@ public class Principal extends javax.swing.JFrame {
             System.out.println("Reports");
             
             // Change Panel
-            pnlContent = new pnlReportsP();
+            pnlContent.removeAll();
+            pnlReportsP reportsPanel = new pnlReportsP(this);
+            pnlContent.add(reportsPanel);
+            pnlContent.revalidate();
+            pnlContent.repaint();
         }
     }//GEN-LAST:event_pnlReportsMouseClicked
 

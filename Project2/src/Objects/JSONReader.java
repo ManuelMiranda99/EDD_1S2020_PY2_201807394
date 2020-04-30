@@ -77,7 +77,8 @@ public class JSONReader {
                 String category = jsonO.get("Categoria").toString();
                 
                 Category _category = new Category(category, _idUser);
-                
+                if(Project2.avl.CheckISBN(id))
+                    continue;
                 Book newBook = new Book(id, title, author, editorial, year, edition, _category, language, _idUser);
                 
                 if(Project2.avl.SearchCategory(category) == null){

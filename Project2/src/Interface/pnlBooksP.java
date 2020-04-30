@@ -12,17 +12,24 @@ Use it as you like and have fun reading it ^^
  */
 package Interface;
 
+import Objects.JSONReader;
+import javax.swing.JFrame;
+import project2.Project2;
+
 /**
  *
  * @author manuel
  */
 public class pnlBooksP extends javax.swing.JPanel {
 
+    
+    JFrame frame = new JFrame();
     /**
      * Creates new form pnlBooksP
      */
-    public pnlBooksP() {
+    public pnlBooksP(JFrame frame) {
         initComponents();
+        this.frame = frame;
     }
 
     /**
@@ -34,17 +41,40 @@ public class pnlBooksP extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btnLoadBooks = new javax.swing.JButton();
 
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(820, 590));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Books");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 111, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnLoadBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/download (1).png"))); // NOI18N
+        btnLoadBooks.setBorderPainted(false);
+        btnLoadBooks.setContentAreaFilled(false);
+        btnLoadBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadBooksActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLoadBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 80, 60));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 780, 550));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoadBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadBooksActionPerformed
+
+        JSONReader jr = new JSONReader();
+
+        jr.ReadBooksJSON(Project2.actualUser.getId());
+
+    }//GEN-LAST:event_btnLoadBooksActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnLoadBooks;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

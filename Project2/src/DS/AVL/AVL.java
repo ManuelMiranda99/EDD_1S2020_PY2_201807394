@@ -217,6 +217,25 @@ public class AVL {
         return root;
     }
     
+    /*----------CHECK----------*/
+    private boolean flagISBN = false;
+    public boolean CheckISBN(int _ISBN){
+        flagISBN = false;
+        RecursiveCheck(root, _ISBN);
+        return flagISBN;
+    }
+    
+    private void RecursiveCheck(AVLNode root, int _ISBN){
+        if(root != null){
+            if(root.getBooks().SearchByISBN(_ISBN) != null){
+                flagISBN = true;
+                return;
+            }
+            RecursiveCheck(root.left, _ISBN);
+            RecursiveCheck(root.right, _ISBN);
+        }
+    }
+    
     /*----------REPORTS----------*/
     public void PreOrderReport(){
         RecursivePreOrder(root);
