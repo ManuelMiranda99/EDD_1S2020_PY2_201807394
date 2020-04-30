@@ -12,6 +12,8 @@ Use it as you like and have fun reading it ^^
  */
 package Interface;
 
+import Objects.JSONReader;
+import project2.Project2;
 import static project2.Project2.hashTable;
 
 /**
@@ -26,7 +28,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {        
         initComponents();        
         this.setContentPane(this.jPanel3);
-        setLocationRelativeTo(null);        
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -55,6 +57,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 153));
+        setUndecorated(true);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -185,9 +188,18 @@ public class Login extends javax.swing.JFrame {
 
             if(hashTable.Login(id, pass)){
                 // Succesful Login
+                System.out.println("Succesful Login");
+                Project2.actualUser = hashTable.Search(id);
+                
+                this.dispose();
+                
+                Principal p = new Principal();
+                p.show();
+                
             }
             else{
                 // Non existing user
+                System.out.println("Login Error");
             }
         }
         catch(Exception e){
@@ -205,7 +217,9 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoadUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadUsersActionPerformed
         
+        JSONReader jr = new JSONReader();
         
+        jr.ReadUserJSON();
         
     }//GEN-LAST:event_btnLoadUsersActionPerformed
 

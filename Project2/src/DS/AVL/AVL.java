@@ -99,7 +99,7 @@ public class AVL {
     private AVLNode RecursiveGet(AVLNode root, String _category){
         if(root == null || root.getCategory().getName().equals(_category)){
             return root;
-        }        
+        }
         // root > key
         if(root.getCategory().getName().compareTo(_category) > 0)
             return RecursiveGet(root.left, _category);
