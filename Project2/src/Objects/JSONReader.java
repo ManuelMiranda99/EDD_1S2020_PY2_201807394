@@ -18,4 +18,10 @@ package Objects;
  */
 public class JSONReader {
     
+    public JSONReader(){}
+    
+    public void ReadUserJSON(String _text){
+        
+    }
+    
 }
