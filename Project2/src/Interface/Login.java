@@ -64,6 +64,11 @@ public class Login extends javax.swing.JFrame {
         btnServer.setContentAreaFilled(false);
         btnServer.setFocusPainted(false);
         btnServer.setRequestFocusEnabled(false);
+        btnServer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServerActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnServer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 60));
 
         btnClose1.setFont(new java.awt.Font("Laksaman", 1, 48)); // NOI18N
@@ -203,6 +208,10 @@ public class Login extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnLoadUsersActionPerformed
+
+    private void btnServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServerActionPerformed
+        
+    }//GEN-LAST:event_btnServerActionPerformed
 
     /**
      * @param args the command line arguments

@@ -181,7 +181,7 @@ public class Registry extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, -1, -1));
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 540, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 660));
@@ -223,6 +223,12 @@ public class Registry extends javax.swing.JFrame {
                 pass = txtPassShow.getText();
             
             hashTable.InsertNode(new User(id, name, lastName, career, pass));
+            Login l = new Login();
+            
+            l.show();
+            
+            this.dispose();
+            
             
         } catch (Exception e) {
             System.out.println("Carnet invalido");
