@@ -236,6 +236,20 @@ public class AVL {
         }
     }
     
+    public void DeleteISBN(int _ISBN){
+                
+    }
+    
+    private void RecursiveDelete(AVLNode root, int _ISBN){
+        if(root != null){
+            if(root.getBooks().SearchByISBN(_ISBN) != null){
+                
+            }
+            RecursiveDelete(root.left, _ISBN);
+            RecursiveDelete(root.right, _ISBN);
+        }
+    }
+    
     /*----------REPORTS----------*/
     public void PreOrderReport(){
         RecursivePreOrder(root);

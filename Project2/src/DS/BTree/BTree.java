@@ -22,6 +22,7 @@ public class BTree {
 
     private BTreeNode root;
     private int t;
+    private int count = 0;
     
     public BTree(int _t) {
         this.root = null;
@@ -52,6 +53,7 @@ public class BTree {
             else
                 root.InsertNonFullNode(newBook);
         }
+        count++;
     }
     
     public Book SearchByISBN(int _ISBN){
