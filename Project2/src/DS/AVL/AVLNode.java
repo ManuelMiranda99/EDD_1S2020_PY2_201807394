@@ -48,4 +48,20 @@ public class AVLNode {
         return books;
     }
     
+    public String GenerateNode(){
+        String graph = "";
+        
+        graph += "\"" + category.getName().replaceAll(" ", "_") + "\" [label=\"" + category.getName() + "\"]; \n";
+        
+        if(left != null){
+            graph += left.GenerateNode() + "\"" + category.getName().replaceAll(" ", "_") + "\"->\"" + left.getCategory().getName().replace(" ", "_") + "\";\n";
+        }
+        
+        if(right != null){
+            graph += right.GenerateNode() + "\"" + category.getName().replaceAll(" ", "_") + "\"->\"" + right.getCategory().getName().replace(" ", "_") + "\";\n";
+        }
+        graph += "\n";
+        return graph;
+    }
+    
 }
