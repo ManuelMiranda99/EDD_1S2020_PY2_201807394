@@ -257,14 +257,16 @@ public class AVL {
     
     /*----------REPORTS----------*/
     public void GenerateTree(){
-        String graph =  "digraph avl {\n"                                   +
+        if(root != null){
+            String graph =  "digraph avl {\n"                                   +
                         "rankdir=TB;\n"                                     +
                         "graph[bgcolor=black, label=\"Categorias\"];\n"     +
                         "node[style=filled, fillcolor=lemonchiffon1];\n"    +
                         "edge[color=white];\n";
-        graph += root.GenerateNode();
-        graph += "}";
-        Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL.txt");
+            graph += root.GenerateNode();
+            graph += "}";
+            Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL.txt");
+        }        
     }
     
     private void DeleteReportList(){

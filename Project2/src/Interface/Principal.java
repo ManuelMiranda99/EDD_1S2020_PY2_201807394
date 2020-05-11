@@ -267,8 +267,6 @@ public class Principal extends javax.swing.JFrame {
             
             System.out.println("Reports");
             
-            Project2.hashTable.GenerateTable();
-            
             // Change Panel
             pnlContent.removeAll();
             pnlReportsP reportsPanel = new pnlReportsP(this);
