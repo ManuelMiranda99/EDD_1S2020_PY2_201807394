@@ -13,6 +13,7 @@ Use it as you like and have fun reading it ^^
 package Interface;
 
 import java.awt.FlowLayout;
+import project2.Project2;
 
 /**
  *

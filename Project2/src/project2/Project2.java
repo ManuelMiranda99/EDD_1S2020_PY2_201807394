@@ -16,6 +16,7 @@ package project2;
 import DS.AVL.AVL;
 import DS.HashTable.HashTable;
 import Interface.Login;
+import Objects.GraphvizGenerator;
 import Objects.User;
 
 public class Project2 {
@@ -23,6 +24,7 @@ public class Project2 {
     public static HashTable hashTable = new HashTable();
     public static AVL avl = new AVL();
     public static User actualUser;
+    public static GraphvizGenerator gGenerator = new GraphvizGenerator();
     
     public static void main(String[] args) {
         Login l = new Login();

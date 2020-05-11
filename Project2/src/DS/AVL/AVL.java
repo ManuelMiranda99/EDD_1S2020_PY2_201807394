@@ -12,17 +12,22 @@ Use it as you like and have fun reading it ^^
  */
 package DS.AVL;
 
+import DS.SimpleList.SimpleList;
 import Objects.Category;
+import project2.Project2;
 
 /**
  *
  * @author manuel
  */
 public class AVL {
+    
     private AVLNode root;
+    private SimpleList report;
     
     public AVL(){
-        
+        root = null;
+        report = new SimpleList();
     }
     
     private int height(AVLNode root){
@@ -251,39 +256,53 @@ public class AVL {
     }
     
     /*----------REPORTS----------*/
+    private void DeleteReportList(){
+        report = new SimpleList();
+    }
+    
+    private void GenerateGraphviz(String _name){
+        Project2.gGenerator.GenerateGraph(report.GenerateDot(), _name);
+    }
+    
     public void PreOrderReport(){
+        DeleteReportList();
         RecursivePreOrder(root);
+        GenerateGraphviz("AVLPreOrderReport.txt");
     }
     
     private void RecursivePreOrder(AVLNode root){
         if(root != null){
-            System.out.println(root.getCategory().getName());
+            report.Insert(root.getCategory().getName());
             RecursivePreOrder(root.left);
             RecursivePreOrder(root.right);
         }
     }
     
     public void InOrderReport(){
+        DeleteReportList();
         RecursiveInOrder(root);
+        GenerateGraphviz("AVLInOrderReport.txt");
     }
     
     private void RecursiveInOrder(AVLNode root){
         if(root != null){            
             RecursiveInOrder(root.left);
-            System.out.println(root.getCategory().getName());
+            report.Insert(root.getCategory().getName());            
             RecursiveInOrder(root.right);
         }
     }
     
     public void PostOrderReport(){
+        DeleteReportList();
         RecursivePostOrder(root);
+        GenerateGraphviz("AVLPostOrderReport.txt");
     }
     
     private void RecursivePostOrder(AVLNode root){
-        if(root != null){            
+        if(root != null){
             RecursivePostOrder(root.left);            
             RecursivePostOrder(root.right);
-            System.out.println(root.getCategory().getName());
+            report.Insert(root.getCategory().getName());            
         }
     }
 }

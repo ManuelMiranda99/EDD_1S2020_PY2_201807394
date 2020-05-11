@@ -13,6 +13,7 @@ Use it as you like and have fun reading it ^^
 package Interface;
 
 import Objects.JSONReader;
+import javax.swing.JOptionPane;
 import project2.Project2;
 import static project2.Project2.hashTable;
 
@@ -200,6 +201,7 @@ public class Login extends javax.swing.JFrame {
             else{
                 // Non existing user
                 System.out.println("Login Error");
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "System", JOptionPane.WARNING_MESSAGE);
             }
         }
         catch(Exception e){
