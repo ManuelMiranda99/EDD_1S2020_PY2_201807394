@@ -66,6 +66,7 @@ public class pnlUserP extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -122,6 +123,8 @@ public class pnlUserP extends javax.swing.JPanel {
             }
         });
         jPanel1.add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 70, 40));
+
+        txtPassShow.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jPanel1.add(txtPassShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 410, 40));
 
         btnDelete.setBackground(new java.awt.Color(255, 0, 0));

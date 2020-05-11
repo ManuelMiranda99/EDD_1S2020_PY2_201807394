@@ -28,7 +28,7 @@ public class AVLNode {
     public AVLNode(Category _category){
         right = left = null;
         this.category = _category;
-        //this.books = new BTree(5);
+        this.books = new BTree(3);
         this.balance = 1;
     }
 
@@ -46,6 +46,22 @@ public class AVLNode {
 
     public BTree getBooks() {
         return books;
+    }
+    
+    public String GenerateNode(){
+        String graph = "";
+        
+        graph += "\"" + category.getName().replaceAll(" ", "_") + "\" [label=\"" + category.getName() + " con " + this.books.count + " libros\"]; \n";
+        
+        if(left != null){
+            graph += left.GenerateNode() + "\"" + category.getName().replaceAll(" ", "_") + "\"->\"" + left.getCategory().getName().replace(" ", "_") + "\";\n";
+        }
+        
+        if(right != null){
+            graph += right.GenerateNode() + "\"" + category.getName().replaceAll(" ", "_") + "\"->\"" + right.getCategory().getName().replace(" ", "_") + "\";\n";
+        }
+        graph += "\n";
+        return graph;
     }
     
 }

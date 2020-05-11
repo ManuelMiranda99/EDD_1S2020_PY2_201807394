@@ -12,17 +12,28 @@ Use it as you like and have fun reading it ^^
  */
 package Interface;
 
+import Objects.Book;
+import Objects.Category;
+import Objects.JSONReader;
+import javax.swing.JFrame;
+import project2.Project2;
+import static project2.Project2.actualUser;
+import static project2.Project2.avl;
+
 /**
  *
  * @author manuel
  */
 public class pnlBooksP extends javax.swing.JPanel {
 
+    
+    JFrame frame = new JFrame();
     /**
      * Creates new form pnlBooksP
      */
-    public pnlBooksP() {
+    public pnlBooksP(JFrame frame) {
         initComponents();
+        this.frame = frame;
     }
 
     /**
@@ -34,17 +45,358 @@ public class pnlBooksP extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        btnLoadBooks = new javax.swing.JButton();
+        pnlCreate = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        btnCreate = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtLanguage = new javax.swing.JTextField();
+        txtISBN = new javax.swing.JTextField();
+        txtYear = new javax.swing.JTextField();
+        txtEdition = new javax.swing.JTextField();
+        txtCategory = new javax.swing.JTextField();
+        txtEditorial = new javax.swing.JTextField();
+        txtAuthor = new javax.swing.JTextField();
+        txtTitle = new javax.swing.JTextField();
+        pnlDelete = new javax.swing.JPanel();
+        btnDelete = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtISBNDelete = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtTitleDelete = new javax.swing.JTextField();
+        cmbBooks = new javax.swing.JComboBox<>();
+        rdbISBN = new javax.swing.JRadioButton();
+        rdbName = new javax.swing.JRadioButton();
+        btnSearch = new javax.swing.JButton();
 
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(820, 590));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Books");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 111, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnLoadBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/download (1).png"))); // NOI18N
+        btnLoadBooks.setBorderPainted(false);
+        btnLoadBooks.setContentAreaFilled(false);
+        btnLoadBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadBooksActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLoadBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 80, 60));
+
+        pnlCreate.setOpaque(false);
+        pnlCreate.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("IDIOMA:");
+        pnlCreate.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("CREAR LIBRO");
+        pnlCreate.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("TITULO:");
+        pnlCreate.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("AUTOR:");
+        pnlCreate.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("EDITORIAL:");
+        pnlCreate.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("AÑO:");
+        pnlCreate.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("EDICIÓN:");
+        pnlCreate.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("CATEGORÍA:");
+        pnlCreate.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+
+        btnCreate.setBackground(new java.awt.Color(55, 224, 76));
+        btnCreate.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreate.setText("CREAR");
+        btnCreate.setBorderPainted(false);
+        btnCreate.setFocusPainted(false);
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+        pnlCreate.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 310, 50));
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("ISBN:");
+        pnlCreate.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        txtLanguage.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlCreate.add(txtLanguage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 340, 40));
+
+        txtISBN.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlCreate.add(txtISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, 40));
+
+        txtYear.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlCreate.add(txtYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 160, 40));
+
+        txtEdition.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlCreate.add(txtEdition, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 160, 40));
+
+        txtCategory.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlCreate.add(txtCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 340, 40));
+
+        txtEditorial.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlCreate.add(txtEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 340, 40));
+
+        txtAuthor.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlCreate.add(txtAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 340, 40));
+
+        txtTitle.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlCreate.add(txtTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 340, 40));
+
+        jPanel1.add(pnlCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 380, 520));
+
+        pnlDelete.setOpaque(false);
+        pnlDelete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnDelete.setBackground(new java.awt.Color(255, 0, 0));
+        btnDelete.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("ELIMINAR");
+        btnDelete.setBorderPainted(false);
+        btnDelete.setFocusPainted(false);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        pnlDelete.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 280, 50));
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("ELIMINAR LIBRO");
+        pnlDelete.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 340, -1));
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("ISBN:");
+        pnlDelete.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        txtISBNDelete.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlDelete.add(txtISBNDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 320, 40));
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("TITULO:");
+        pnlDelete.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        txtTitleDelete.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlDelete.add(txtTitleDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 270, 40));
+
+        cmbBooks.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        cmbBooks.setEnabled(false);
+        pnlDelete.add(cmbBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 320, 40));
+
+        rdbISBN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        rdbISBN.setForeground(new java.awt.Color(0, 0, 0));
+        rdbISBN.setSelected(true);
+        rdbISBN.setText("ELIMINAR POR ISBN");
+        rdbISBN.setOpaque(false);
+        rdbISBN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbISBNActionPerformed(evt);
+            }
+        });
+        pnlDelete.add(rdbISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 320, -1));
+
+        rdbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        rdbName.setForeground(new java.awt.Color(0, 0, 0));
+        rdbName.setText("ELIMINAR POR NOMBRE");
+        rdbName.setOpaque(false);
+        rdbName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbNameActionPerformed(evt);
+            }
+        });
+        pnlDelete.add(rdbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 320, -1));
+
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/lupa (1).png"))); // NOI18N
+        btnSearch.setOpaque(false);
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        pnlDelete.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 50, 40));
+
+        jPanel1.add(pnlDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 360, 460));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 780, 550));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoadBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadBooksActionPerformed
+
+        JSONReader jr = new JSONReader();
+
+        jr.ReadBooksJSON(Project2.actualUser.getId());
+
+    }//GEN-LAST:event_btnLoadBooksActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+
+        try {
+            int ISBN = Integer.parseInt(txtISBN.getText());
+            String title = txtTitle.getText();
+            String author = txtAuthor.getText();
+            String editorial = txtEditorial.getText();
+            String year = txtYear.getText();
+            String edition = txtEdition.getText();
+            String category = txtCategory.getText();
+            String language = txtLanguage.getText();
+            
+            Category _category = new Category(category, actualUser.getId());
+                if(Project2.avl.CheckISBN(ISBN)){
+                    return;                     // Existing ISBN
+                }
+            Book newBook = new Book(ISBN, title, author, editorial, year, edition, _category, language, actualUser.getId());
+            
+            if(Project2.avl.SearchCategory(category) == null){
+                Project2.avl.AddCategory(_category);
+            }
+            Project2.avl.SearchCategory(category).getBooks().Insert(ISBN, newBook);
+            
+            txtISBN.setText("");
+            txtTitle.setText("");
+            txtAuthor.setText("");
+            txtEditorial.setText("");
+            txtYear.setText("");
+            txtEdition.setText("");
+            txtCategory.setText("");
+            txtLanguage.setText("");
+            
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+
+        if(rdbISBN.isSelected()){
+            // Delete by ISBN
+            if(!txtISBN.getText().equals("")){
+                try {
+                    int ISBN = Integer.parseInt(txtISBN.getText());
+                    
+                    if(avl.CheckISBN(ISBN)){
+                        
+                    }
+                    else{
+                        // Non existing book
+                    }
+                } catch (Exception e) {
+                }
+            }
+            else{
+                // Non existing text ISBN
+            }
+        }
+        else{
+            // Delete by Name and selected book
+            if(!txtTitleDelete.getText().equals("") && (cmbBooks.getItemCount() > 0 || cmbBooks.getSelectedIndex() != -1)){
+                
+            }
+            else{
+                
+            }
+        }
+
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void rdbISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbISBNActionPerformed
+        
+        if(rdbName.isSelected())
+            rdbName.setSelected(false);
+        else
+            rdbISBN.setSelected(true);
+        
+    }//GEN-LAST:event_rdbISBNActionPerformed
+
+    private void rdbNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbNameActionPerformed
+        
+        if(rdbISBN.isSelected())
+            rdbISBN.setSelected(false);
+        else
+            rdbName.setSelected(true);
+        
+    }//GEN-LAST:event_rdbNameActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnLoadBooks;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cmbBooks;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel pnlCreate;
+    private javax.swing.JPanel pnlDelete;
+    private javax.swing.JRadioButton rdbISBN;
+    private javax.swing.JRadioButton rdbName;
+    private javax.swing.JTextField txtAuthor;
+    private javax.swing.JTextField txtCategory;
+    private javax.swing.JTextField txtEdition;
+    private javax.swing.JTextField txtEditorial;
+    private javax.swing.JTextField txtISBN;
+    private javax.swing.JTextField txtISBNDelete;
+    private javax.swing.JTextField txtLanguage;
+    private javax.swing.JTextField txtTitle;
+    private javax.swing.JTextField txtTitleDelete;
+    private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
 }

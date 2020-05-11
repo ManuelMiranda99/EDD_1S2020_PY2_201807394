@@ -89,4 +89,23 @@ public class HSimpleList {
         }        
         size--;
     }
+    
+    public String GenerateTable(int cell){
+        String graph = "";
+        HSLNode aux = root;
+        while(aux != null){
+            
+            graph += "\t\t<tr>\n"
+                    +   "\t\t\t<td>" + cell + "</td>\n"
+                    +   "\t\t\t<td>" + aux.user.getId() + "</td>\n"
+                    +   "\t\t\t<td>" + aux.user.getName() + "</td>\n"
+                    +   "\t\t\t<td>" + aux.user.getLastName() + "</td>\n"
+                    +   "\t\t\t<td>" + aux.user.getCareer() + "</td>\n"
+                    +   "\t\t\t<td>" + aux.user.getPasswordMD5() + "</td>\n"
+                    + "\t\t</tr>\n";
+            
+            aux = aux.next;
+        }        
+        return graph;
+    }
 }

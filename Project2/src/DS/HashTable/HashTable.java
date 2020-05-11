@@ -13,6 +13,7 @@ Use it as you like and have fun reading it ^^
 package DS.HashTable;
 
 import Objects.User;
+import project2.Project2;
 
 /**
  *
@@ -81,5 +82,31 @@ public class HashTable {
             listOfUsers[index] = null;
         }
         count--;
+    }
+    
+    public void GenerateTable(){
+        String graph =  
+                  "digraph Table{\n"
+                + "Graph[label=\"Usuarios Ingresados\"];\n"
+                + "nodeT [shape=plaintext, label=<\n\t"
+                + "<table border='1'>\n"
+                +   "<tr>"
+                +       "<td>Celda HASH</td>"
+                +       "<td>Carnet</td>"
+                +       "<td>Nombre</td>"
+                +       "<td>Apellido</td>"
+                +       "<td>Carrera</td>"
+                +       "<td>Contraseña</td>"
+                +   "</tr>";
+        for(int i=0; i < this.listOfUsers.length ; i++){
+            if(listOfUsers[i] != null){
+                graph += listOfUsers[i].GenerateTable(i);
+            }
+        }
+        
+        graph += "\n\t</table>>];\n\n}";
+        
+        Project2.gGenerator.GenerateGraph(graph, "TablaDeUsuarios.txt");
+        
     }
 }

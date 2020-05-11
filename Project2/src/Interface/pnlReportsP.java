@@ -12,17 +12,21 @@ Use it as you like and have fun reading it ^^
  */
 package Interface;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author manuel
  */
 public class pnlReportsP extends javax.swing.JPanel {
 
+    private JFrame frame = new JFrame();
     /**
      * Creates new form pnlReportsP
      */
-    public pnlReportsP() {
+    public pnlReportsP(JFrame frame) {
         initComponents();
+        this.frame = frame;
     }
 
     /**
@@ -36,6 +40,7 @@ public class pnlReportsP extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
+        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Reports");

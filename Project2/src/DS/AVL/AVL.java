@@ -12,17 +12,22 @@ Use it as you like and have fun reading it ^^
  */
 package DS.AVL;
 
+import DS.SimpleList.SimpleList;
 import Objects.Category;
+import project2.Project2;
 
 /**
  *
  * @author manuel
  */
 public class AVL {
+    
     private AVLNode root;
+    private SimpleList report;
     
     public AVL(){
-        
+        root = null;
+        report = new SimpleList();
     }
     
     private int height(AVLNode root){
@@ -217,40 +222,98 @@ public class AVL {
         return root;
     }
     
+    /*----------CHECK----------*/
+    private boolean flagISBN = false;
+    public boolean CheckISBN(int _ISBN){
+        flagISBN = false;
+        RecursiveCheck(root, _ISBN);
+        return flagISBN;
+    }
+    
+    private void RecursiveCheck(AVLNode root, int _ISBN){
+        if(root != null){
+            if(root.getBooks().SearchByISBN(_ISBN) != null){
+                flagISBN = true;
+                return;
+            }
+            RecursiveCheck(root.left, _ISBN);
+            RecursiveCheck(root.right, _ISBN);
+        }
+    }
+    
+    public void DeleteISBN(int _ISBN){
+                
+    }
+    
+    private void RecursiveDelete(AVLNode root, int _ISBN){
+        if(root != null){
+            if(root.getBooks().SearchByISBN(_ISBN) != null){
+                
+            }
+            RecursiveDelete(root.left, _ISBN);
+            RecursiveDelete(root.right, _ISBN);
+        }
+    }
+    
     /*----------REPORTS----------*/
+    public void GenerateTree(){
+        String graph =  "digraph avl {\n"                                   +
+                        "rankdir=TB;\n"                                     +
+                        "graph[bgcolor=black, label=\"Categorias\"];\n"     +
+                        "node[style=filled, fillcolor=lemonchiffon1];\n"    +
+                        "edge[color=white];\n";
+        graph += root.GenerateNode();
+        graph += "}";
+        Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL.txt");
+    }
+    
+    private void DeleteReportList(){
+        report = new SimpleList();
+    }
+    
+    private void GenerateGraphviz(String _name){
+        Project2.gGenerator.GenerateGraph(report.GenerateDot(), _name);
+    }
+    
     public void PreOrderReport(){
+        DeleteReportList();
         RecursivePreOrder(root);
+        GenerateGraphviz("AVLPreOrderReport.txt");
     }
     
     private void RecursivePreOrder(AVLNode root){
         if(root != null){
-            System.out.println(root.getCategory().getName());
+            report.Insert(root.getCategory().getName());
             RecursivePreOrder(root.left);
             RecursivePreOrder(root.right);
         }
     }
     
     public void InOrderReport(){
+        DeleteReportList();
         RecursiveInOrder(root);
+        GenerateGraphviz("AVLInOrderReport.txt");
     }
     
     private void RecursiveInOrder(AVLNode root){
         if(root != null){            
             RecursiveInOrder(root.left);
-            System.out.println(root.getCategory().getName());
+            report.Insert(root.getCategory().getName());            
             RecursiveInOrder(root.right);
         }
     }
     
     public void PostOrderReport(){
+        DeleteReportList();
         RecursivePostOrder(root);
+        GenerateGraphviz("AVLPostOrderReport.txt");
     }
     
     private void RecursivePostOrder(AVLNode root){
-        if(root != null){            
+        if(root != null){
             RecursivePostOrder(root.left);            
             RecursivePostOrder(root.right);
-            System.out.println(root.getCategory().getName());
+            report.Insert(root.getCategory().getName());            
         }
     }
 }

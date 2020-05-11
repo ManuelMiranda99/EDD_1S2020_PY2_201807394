@@ -77,13 +77,14 @@ public class JSONReader {
                 String category = jsonO.get("Categoria").toString();
                 
                 Category _category = new Category(category, _idUser);
-                
+                if(Project2.avl.CheckISBN(id))
+                    continue;
                 Book newBook = new Book(id, title, author, editorial, year, edition, _category, language, _idUser);
                 
                 if(Project2.avl.SearchCategory(category) == null){
                     Project2.avl.AddCategory(_category);
                 }
-                Project2.avl.SearchCategory(category).getBooks().InsertBook(newBook);
+                Project2.avl.SearchCategory(category).getBooks().Insert(newBook.getISBN(), newBook);
             }
             
         } catch (Exception e) {
