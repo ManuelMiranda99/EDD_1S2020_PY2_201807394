@@ -84,7 +84,7 @@ public class JSONReader {
                 if(Project2.avl.SearchCategory(category) == null){
                     Project2.avl.AddCategory(_category);
                 }
-                Project2.avl.SearchCategory(category).getBooks().InsertBook(newBook);
+                Project2.avl.SearchCategory(category).getBooks().Insert(newBook.getISBN(), newBook);
             }
             
         } catch (Exception e) {

@@ -290,7 +290,16 @@ public class pnlBooksP extends javax.swing.JPanel {
             if(Project2.avl.SearchCategory(category) == null){
                 Project2.avl.AddCategory(_category);
             }
-            Project2.avl.SearchCategory(category).getBooks().InsertBook(newBook);
+            Project2.avl.SearchCategory(category).getBooks().Insert(ISBN, newBook);
+            
+            txtISBN.setText("");
+            txtTitle.setText("");
+            txtAuthor.setText("");
+            txtEditorial.setText("");
+            txtYear.setText("");
+            txtEdition.setText("");
+            txtCategory.setText("");
+            txtLanguage.setText("");
             
         } catch (Exception e) {
         }
