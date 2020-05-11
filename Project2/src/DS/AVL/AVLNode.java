@@ -51,7 +51,7 @@ public class AVLNode {
     public String GenerateNode(){
         String graph = "";
         
-        graph += "\"" + category.getName().replaceAll(" ", "_") + "\" [label=\"" + category.getName() + "\"]; \n";
+        graph += "\"" + category.getName().replaceAll(" ", "_") + "\" [label=\"" + category.getName() + " con " + this.books.count + " libros\"]; \n";
         
         if(left != null){
             graph += left.GenerateNode() + "\"" + category.getName().replaceAll(" ", "_") + "\"->\"" + left.getCategory().getName().replace(" ", "_") + "\";\n";

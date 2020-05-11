@@ -22,7 +22,7 @@ public class BTree {
 
     private BTreeNode root;
     private int t;
-    private int count = 0;
+    public int count = 0;
     
     public BTree(int _t){
         t = _t;
@@ -95,7 +95,7 @@ public class BTree {
         }
         else{
             RecursiveInsert(newNode, _ISBN, _book);
-        }
+        }        
     }
     
     private void RecursiveInsert(BTreeNode _root, int _ISBN, Book _book){
@@ -107,7 +107,8 @@ public class BTree {
             }
             
             _root.books[i + 1] = _book;
-            _root.count++;            
+            _root.count++;
+            this.count++;
         } else {
             int i=0;
             for(i = _root.count - 1; i >= 0 && _ISBN < _root.books[i].getISBN(); i--){}
