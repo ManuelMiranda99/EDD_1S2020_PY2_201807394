@@ -13,6 +13,7 @@ Use it as you like and have fun reading it ^^
 package DS.BTree;
 
 import Objects.Book;
+import Objects.Category;
 
 /**
  *
@@ -23,11 +24,13 @@ public class BTree {
     private BTreeNode root;
     private int t;
     public int count = 0;
+    Category category;
     
-    public BTree(int _t){
+    public BTree(int _t, Category _category){
         t = _t;
         root = new BTreeNode(_t, true);
         root.count = 0;
+        this.category = _category;
     }
     
     public BTreeNode SearchByISBN(int _ISBN){
@@ -304,5 +307,9 @@ public class BTree {
             }
             
         }
+    }
+    
+    public void GenerateTree(){
+        System.out.println("Genera Arbol");
     }
 }

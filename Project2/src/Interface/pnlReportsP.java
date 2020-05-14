@@ -81,47 +81,91 @@ public class pnlReportsP extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
-                
-        int index = this.cmbReports.getSelectedIndex();
-        switch(index){
-            case 0:
-                Project2.avl.GenerateTree();
-                // Put in label                
-                Project2.gGenerator.PutInLabel(lblImageReports);
-                break;
-            case 1:
-                cmbCategories.setEnabled(true);
-                
-                Project2.avl.FillComboBox(cmbCategories);
-                
-                break;
-            case 2:
-                Project2.hashTable.GenerateTable();                
-                // Put in label
-                Project2.gGenerator.PutInLabel(lblImageReports);
-                break;
-            case 3:
-                Project2.avl.PreOrderReport();
-                Project2.gGenerator.PutInLabel(lblImageReports);
-                break;
-            case 4:
-                Project2.avl.InOrderReport();
-                Project2.gGenerator.PutInLabel(lblImageReports);
-                break;
-            case 5:
-                Project2.avl.PostOrderReport();
-                Project2.gGenerator.PutInLabel(lblImageReports);
-                break;
-            case 6:
-                
-                break;
-            case 7:
-                
-                break;
-            default:
-                System.out.println("Que leches");
-                break;
-        }
+        
+        if(cmbCategories.isEnabled()){
+            int index = this.cmbReports.getSelectedIndex();
+            cmbCategories.setEnabled(false);
+            switch(index){
+                case 0:
+                    Project2.avl.GenerateTree();
+                    // Put in label                
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 1:
+                    cmbCategories.setEnabled(true);
+                    
+                    Project2.avl.SearchCategory(cmbCategories.getSelectedItem().toString()).getBooks().GenerateTree();
+
+                    break;
+                case 2:
+                    Project2.hashTable.GenerateTable();                
+                    // Put in label
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 3:
+                    Project2.avl.PreOrderReport();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 4:
+                    Project2.avl.InOrderReport();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 5:
+                    Project2.avl.PostOrderReport();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 6:
+
+                    break;
+                case 7:
+
+                    break;
+                default:
+                    System.out.println("Que leches");
+                    break;
+            }
+        }else{            
+            int index = this.cmbReports.getSelectedIndex();
+            switch(index){
+                case 0:
+                    Project2.avl.GenerateTree();
+                    // Put in label                
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 1:
+                    cmbCategories.setEnabled(true);
+
+                    Project2.avl.FillComboBox(cmbCategories);
+
+                    break;
+                case 2:
+                    Project2.hashTable.GenerateTable();                
+                    // Put in label
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 3:
+                    Project2.avl.PreOrderReport();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 4:
+                    Project2.avl.InOrderReport();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 5:
+                    Project2.avl.PostOrderReport();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    break;
+                case 6:
+
+                    break;
+                case 7:
+
+                    break;
+                default:
+                    System.out.println("Que leches");
+                    break;
+            }
+        }                
         
     }//GEN-LAST:event_btnGenerateActionPerformed
 

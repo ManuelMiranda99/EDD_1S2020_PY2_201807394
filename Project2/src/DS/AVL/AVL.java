@@ -242,22 +242,23 @@ public class AVL {
         }
     }
     
-    public void DeleteISBN(int _ISBN){
-                
+    public void DeleteISBN(int _ISBN, int _user){
+        
     }
     
-    private void RecursiveDelete(AVLNode root, int _ISBN){
+    private void RecursiveDelete(AVLNode root, int _ISBN, int _user){
         if(root != null){
             if(root.getBooks().SearchByISBN(_ISBN) != null){
-                
+                root.getBooks().DeleteBook(_ISBN, _user);
             }
-            RecursiveDelete(root.left, _ISBN);
-            RecursiveDelete(root.right, _ISBN);
+            RecursiveDelete(root.left, _ISBN, _user);
+            RecursiveDelete(root.right, _ISBN, _user);
         }
     }
     
     /*----------REPORTS----------*/
     public void FillComboBox(JComboBox _cmb){
+        _cmb.removeAllItems();
         RecursiveFillComboBox(root, _cmb);
     }
     
