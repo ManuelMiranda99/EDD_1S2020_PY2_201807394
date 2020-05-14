@@ -13,6 +13,7 @@ Use it as you like and have fun reading it ^^
 package Interface;
 
 import Objects.User;
+import javax.swing.JOptionPane;
 import static project2.Project2.hashTable;
 
 /**
@@ -209,18 +210,17 @@ public class Registry extends javax.swing.JFrame {
 
     private void txtRegistryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegistryActionPerformed
         try {
-            
-            int id = Integer.parseInt(txtID.getText());
+                        
             String name = txtName.getText(), lastName = txtLastName.getText(), 
                    career = txtCareer.getText(), pass = txtPass.getText();
-            if(id == 0 || "".equals(name) || "".equals(lastName) || 
+            if(txtID.getText().equals("") || "".equals(name) || "".equals(lastName) || 
                "".equals(career) || "".equals(pass)){
-                System.out.println("Ingrese todos los datos");
+                JOptionPane.showMessageDialog(null, "Ingrese todos los datos", "System", JOptionPane.WARNING_MESSAGE);
                 return;
             }
             if(count != 0)
                 pass = txtPassShow.getText();
-            
+            int id = Integer.parseInt(txtID.getText());
             hashTable.InsertNode(new User(id, name, lastName, career, pass));
             Login l = new Login();
             
@@ -230,7 +230,7 @@ public class Registry extends javax.swing.JFrame {
             
             
         } catch (Exception e) {
-            System.out.println("Carnet invalido");
+            JOptionPane.showMessageDialog(null, "Ingrese un carnet valido, unicamente se aceptan numeros", "System", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_txtRegistryActionPerformed
 

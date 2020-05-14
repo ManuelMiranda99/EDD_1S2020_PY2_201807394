@@ -205,7 +205,7 @@ public class Login extends javax.swing.JFrame {
             }
         }
         catch(Exception e){
-            System.out.println("Carnet invalido");
+            JOptionPane.showMessageDialog(null, "Ingrese un carnet valido, unicamente numeros", "System", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

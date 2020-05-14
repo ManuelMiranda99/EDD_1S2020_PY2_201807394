@@ -91,9 +91,9 @@ public class pnlReportsP extends javax.swing.JPanel {
                 break;
             case 1:
                 cmbCategories.setEnabled(true);
-                /*
-                    Fill categories
-                */
+                
+                Project2.avl.FillComboBox(cmbCategories);
+                
                 break;
             case 2:
                 Project2.hashTable.GenerateTable();                

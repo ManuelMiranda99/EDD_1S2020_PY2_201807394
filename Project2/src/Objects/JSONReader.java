@@ -14,6 +14,7 @@ package Objects;
 
 import java.io.FileReader;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -29,6 +30,7 @@ public class JSONReader {
     public JSONReader(){}
     
     public void ReadUserJSON(){
+        int count = 0;
         try {
             JSONParser parser = new JSONParser();           
             
@@ -49,14 +51,16 @@ public class JSONReader {
                 User newUser = new User(id, name, lastName, career, pass);
                 
                 Project2.hashTable.InsertNode(newUser);
+                count++;
             }
-            
+            JOptionPane.showMessageDialog(null, "Archivo JSON de usuarios leído con exito. Se leyeron " + count + " usuarios", "System", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
-            System.out.println("Error leyendo el fichero json");
+            JOptionPane.showMessageDialog(null, "Error al leer archivo JSON. Verifique su archivo. Se leyeron " + count + " Usuarios", "System", JOptionPane.WARNING_MESSAGE);
         }
     }
     
     public void ReadBooksJSON(int _idUser){
+        int count = 0, countC = 0;
         try {
             JSONParser parser = new JSONParser();
             
@@ -81,14 +85,17 @@ public class JSONReader {
                     continue;
                 Book newBook = new Book(id, title, author, editorial, year, edition, _category, language, _idUser);
                 
+                count++;
+                
                 if(Project2.avl.SearchCategory(category) == null){
                     Project2.avl.AddCategory(_category);
+                    countC++;
                 }
                 Project2.avl.SearchCategory(category).getBooks().Insert(newBook.getISBN(), newBook);
             }
-            
+            JOptionPane.showMessageDialog(null, "Archivo JSON de libros leído con exito. Se leyeron " + count + " libros y se agregaron " + countC + " Categorias", "System", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
-            System.out.println("Error leyendo el fichero json");
+            JOptionPane.showMessageDialog(null, "Error al leer archivo JSON. Verifique su archivo. Se leyeron " + count + " Libros", "System", JOptionPane.WARNING_MESSAGE);
         }
     }
     

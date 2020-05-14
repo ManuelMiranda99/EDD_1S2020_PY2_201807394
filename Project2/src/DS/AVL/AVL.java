@@ -14,6 +14,7 @@ package DS.AVL;
 
 import DS.SimpleList.SimpleList;
 import Objects.Category;
+import javax.swing.JComboBox;
 import project2.Project2;
 
 /**
@@ -256,6 +257,18 @@ public class AVL {
     }
     
     /*----------REPORTS----------*/
+    public void FillComboBox(JComboBox _cmb){
+        RecursiveFillComboBox(root, _cmb);
+    }
+    
+    private void RecursiveFillComboBox(AVLNode root, JComboBox _cmb){
+        if(root != null){
+            RecursiveFillComboBox(root.left, _cmb);
+            _cmb.addItem(root.getCategory().getName());
+            RecursiveFillComboBox(root.right, _cmb);
+        }
+    }
+    
     public void GenerateTree(){
         if(root != null){
             String graph =  "digraph avl {\n"                                   +
