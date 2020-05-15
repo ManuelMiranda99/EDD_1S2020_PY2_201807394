@@ -14,6 +14,7 @@ package DS.BTree;
 
 import Objects.Book;
 import Objects.Category;
+import project2.Project2;
 
 /**
  *
@@ -310,6 +311,16 @@ public class BTree {
     }
     
     public void GenerateTree(){
-        System.out.println("Genera Arbol");
+        if(root.count != 0){
+            String graph = 
+                        "digraph btree {\n"
+                    +   "rankdir=TB;\n"
+                    +   "graph[bgcolor=black, label=\"Libros " + category.getName() + "\"];\n"
+                    +   "node[style=filled, fillcolor=lemonchiffon1];\n"
+                    +   "edge[color=white];\n"
+                    +   root.GenerateNode()
+                    +   "}";
+            Project2.gGenerator.GenerateGraph(graph, "ArbolB" + category.getName() + ".txt");
+        }
     }
 }

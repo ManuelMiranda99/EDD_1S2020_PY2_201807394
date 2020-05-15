@@ -146,21 +146,18 @@ public class AVL {
             }
             else{
                 // DELETE NODE
-                // Node without one or more childs
+                // Node without one or no childs
                 if(root.left == null || root.right == null){
                     AVLNode aux = null;
-                    // Leave node
-                    if(root.left == null && root.right == null){
+                    if(aux == root.left)
+                        aux = root.right;
+                    else
+                        aux = root.left;
+                    if(aux == null){
+                        aux = root;
                         root = null;
-                    }
-                    // Node with right child
-                    else if(root.left == null){
-                        root = aux.right;
-                    }
-                    // Node with left child
-                    else{
-                        root = aux.left;
-                    }
+                    }else
+                        root = aux;
                 }
                 // Node with both Childs, change node with the minor element in the right
                 else{

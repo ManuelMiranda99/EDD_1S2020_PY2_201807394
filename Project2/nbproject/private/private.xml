@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/Interface/Registry.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/DS/AVL/AVLNode.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/Objects/Category.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/Objects/JSONReader.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/DS/BTree/BTree.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/DS/AVL/AVL.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/Interface/Login.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/Objects/GraphvizGenerator.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/DS/BTree/BTreeNode.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/Interface/pnlReportsP.java</file>
-            <file>file:/home/manuel/Documentos/Universidad/EDD/Lab/EDD_1S2020_PY2_201807394/Project2/src/project2/Project2.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
