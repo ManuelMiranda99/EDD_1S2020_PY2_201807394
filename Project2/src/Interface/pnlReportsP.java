@@ -96,6 +96,8 @@ public class pnlReportsP extends javax.swing.JPanel {
                     
                     Project2.avl.SearchCategory(cmbCategories.getSelectedItem().toString()).getBooks().GenerateTree();
 
+                    Project2.gGenerator.PutInLabel(lblImageReports);
+                    
                     break;
                 case 2:
                     Project2.hashTable.GenerateTable();                

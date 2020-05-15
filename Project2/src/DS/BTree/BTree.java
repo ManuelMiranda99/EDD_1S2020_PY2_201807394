@@ -315,8 +315,8 @@ public class BTree {
             String graph = 
                         "digraph btree {\n"
                     +   "rankdir=TB;\n"
-                    +   "graph[bgcolor=black, label=\"Libros " + category.getName() + "\"];\n"
-                    +   "node[style=filled, fillcolor=lemonchiffon1];\n"
+                    +   "graph[fontcolor=white, bgcolor=black, label=\"Libros " + category.getName() + "\", color=white];\n"
+                    +   "node[style=filled, fillcolor=lemonchiffon1, shape=record, height=.1];\n"
                     +   "edge[color=white];\n"
                     +   root.GenerateNode()
                     +   "}";

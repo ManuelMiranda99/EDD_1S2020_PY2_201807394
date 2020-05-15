@@ -28,18 +28,18 @@ public class SocketsFrame extends javax.swing.JFrame {
         this.setContentPane(this.jPanel1);
         setLocationRelativeTo(null);
         
-        txtIP.setText(Project2.IP);
+        txtIPFriend.setText(Project2.IP);
         
         if(Project2.state){
             btnSendBlock.setEnabled(true);
             lblActive.setText("ACTIVO");
             btnConnect.setEnabled(false);
-            txtIP.enable(false);
+            txtIPFriend.enable(false);
         }else{
             btnSendBlock.setEnabled(false);
             lblActive.setText("NO ACTIVO");
             btnConnect.setEnabled(true);
-            txtIP.enable(true);
+            txtIPFriend.enable(true);
         }
     }
 
@@ -59,9 +59,11 @@ public class SocketsFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblActive = new javax.swing.JLabel();
         btnSendBlock = new javax.swing.JButton();
-        txtIP = new javax.swing.JTextField();
+        txtIPFriend = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnConnect = new javax.swing.JButton();
+        txtIP = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -94,7 +96,7 @@ public class SocketsFrame extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("IP:");
+        jLabel2.setText("IP AMIGA:");
         pnlLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 140, 20));
 
         lblActive.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -114,10 +116,10 @@ public class SocketsFrame extends javax.swing.JFrame {
                 btnSendBlockActionPerformed(evt);
             }
         });
-        pnlLogin.add(btnSendBlock, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 460, 50));
+        pnlLogin.add(btnSendBlock, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 460, 50));
 
-        txtIP.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        pnlLogin.add(txtIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 490, 40));
+        txtIPFriend.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlLogin.add(txtIPFriend, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 260, 40));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -135,7 +137,15 @@ public class SocketsFrame extends javax.swing.JFrame {
                 btnConnectActionPerformed(evt);
             }
         });
-        pnlLogin.add(btnConnect, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 490, 50));
+        pnlLogin.add(btnConnect, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 530, 50));
+
+        txtIP.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        pnlLogin.add(txtIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 260, 40));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("TU IP:");
+        pnlLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 140, 20));
 
         jPanel1.add(pnlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 460));
 
@@ -148,15 +158,15 @@ public class SocketsFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnClose1ActionPerformed
 
-    private void btnSendBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendBlockActionPerformed
-        
-    }//GEN-LAST:event_btnSendBlockActionPerformed
-
     private void btnConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectActionPerformed
         
         Project2.state = true;
         
     }//GEN-LAST:event_btnConnectActionPerformed
+
+    private void btnSendBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendBlockActionPerformed
+
+    }//GEN-LAST:event_btnSendBlockActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,10 +209,12 @@ public class SocketsFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSendBlock;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblActive;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JTextField txtIP;
+    private javax.swing.JTextField txtIPFriend;
     // End of variables declaration//GEN-END:variables
 }
