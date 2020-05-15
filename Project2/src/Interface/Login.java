@@ -226,7 +226,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoadUsersActionPerformed
 
     private void btnServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServerActionPerformed
-        
+        SocketsFrame sf = new SocketsFrame();
+        sf.show();
     }//GEN-LAST:event_btnServerActionPerformed
 
     /**

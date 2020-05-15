@@ -205,7 +205,8 @@ public class Registry extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClose1ActionPerformed
 
     private void btnServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServerActionPerformed
-        // TODO add your handling code here:
+        SocketsFrame sf = new SocketsFrame();
+        sf.show();
     }//GEN-LAST:event_btnServerActionPerformed
 
     private void txtRegistryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegistryActionPerformed
