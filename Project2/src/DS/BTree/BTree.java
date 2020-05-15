@@ -13,6 +13,8 @@ Use it as you like and have fun reading it ^^
 package DS.BTree;
 
 import Objects.Book;
+import Objects.Category;
+import project2.Project2;
 
 /**
  *
@@ -23,11 +25,13 @@ public class BTree {
     private BTreeNode root;
     private int t;
     public int count = 0;
+    Category category;
     
-    public BTree(int _t){
+    public BTree(int _t, Category _category){
         t = _t;
         root = new BTreeNode(_t, true);
         root.count = 0;
+        this.category = _category;
     }
     
     public BTreeNode SearchByISBN(int _ISBN){
@@ -303,6 +307,20 @@ public class BTree {
                 return;
             }
             
+        }
+    }
+    
+    public void GenerateTree(){
+        if(root.count != 0){
+            String graph = 
+                        "digraph btree {\n"
+                    +   "rankdir=TB;\n"
+                    +   "graph[fontcolor=white, bgcolor=black, label=\"Libros " + category.getName() + "\", color=white];\n"
+                    +   "node[style=filled, fillcolor=lemonchiffon1, shape=record, height=.1];\n"
+                    +   "edge[color=white];\n"
+                    +   root.GenerateNode()
+                    +   "}";
+            Project2.gGenerator.GenerateGraph(graph, "ArbolB" + category.getName() + ".txt");
         }
     }
 }

@@ -14,6 +14,7 @@ package DS.AVL;
 
 import DS.SimpleList.SimpleList;
 import Objects.Category;
+import javax.swing.JComboBox;
 import project2.Project2;
 
 /**
@@ -145,21 +146,18 @@ public class AVL {
             }
             else{
                 // DELETE NODE
-                // Node without one or more childs
+                // Node without one or no childs
                 if(root.left == null || root.right == null){
                     AVLNode aux = null;
-                    // Leave node
-                    if(root.left == null && root.right == null){
+                    if(aux == root.left)
+                        aux = root.right;
+                    else
+                        aux = root.left;
+                    if(aux == null){
+                        aux = root;
                         root = null;
-                    }
-                    // Node with right child
-                    else if(root.left == null){
-                        root = aux.right;
-                    }
-                    // Node with left child
-                    else{
-                        root = aux.left;
-                    }
+                    }else
+                        root = aux;
                 }
                 // Node with both Childs, change node with the minor element in the right
                 else{
@@ -241,30 +239,45 @@ public class AVL {
         }
     }
     
-    public void DeleteISBN(int _ISBN){
-                
+    public void DeleteISBN(int _ISBN, int _user){
+        
     }
     
-    private void RecursiveDelete(AVLNode root, int _ISBN){
+    private void RecursiveDelete(AVLNode root, int _ISBN, int _user){
         if(root != null){
             if(root.getBooks().SearchByISBN(_ISBN) != null){
-                
+                root.getBooks().DeleteBook(_ISBN, _user);
             }
-            RecursiveDelete(root.left, _ISBN);
-            RecursiveDelete(root.right, _ISBN);
+            RecursiveDelete(root.left, _ISBN, _user);
+            RecursiveDelete(root.right, _ISBN, _user);
         }
     }
     
     /*----------REPORTS----------*/
+    public void FillComboBox(JComboBox _cmb){
+        _cmb.removeAllItems();
+        RecursiveFillComboBox(root, _cmb);
+    }
+    
+    private void RecursiveFillComboBox(AVLNode root, JComboBox _cmb){
+        if(root != null){
+            RecursiveFillComboBox(root.left, _cmb);
+            _cmb.addItem(root.getCategory().getName());
+            RecursiveFillComboBox(root.right, _cmb);
+        }
+    }
+    
     public void GenerateTree(){
-        String graph =  "digraph avl {\n"                                   +
+        if(root != null){
+            String graph =  "digraph avl {\n"                                   +
                         "rankdir=TB;\n"                                     +
                         "graph[bgcolor=black, label=\"Categorias\"];\n"     +
                         "node[style=filled, fillcolor=lemonchiffon1];\n"    +
                         "edge[color=white];\n";
-        graph += root.GenerateNode();
-        graph += "}";
-        Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL.txt");
+            graph += root.GenerateNode();
+            graph += "}";
+            Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL.txt");
+        }        
     }
     
     private void DeleteReportList(){

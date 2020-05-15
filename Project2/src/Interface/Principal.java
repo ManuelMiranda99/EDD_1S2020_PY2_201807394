@@ -68,6 +68,8 @@ public class Principal extends javax.swing.JFrame {
         pnlCategory = new javax.swing.JPanel();
         btnCategory = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        btnServer = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -195,6 +197,33 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 660));
 
+        btnServer.setBackground(new java.awt.Color(255, 255, 255));
+        btnServer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/wifi (1).png"))); // NOI18N
+        btnServer.setBorderPainted(false);
+        btnServer.setContentAreaFilled(false);
+        btnServer.setFocusPainted(false);
+        btnServer.setRequestFocusEnabled(false);
+        btnServer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServerActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnServer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 60));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/wifi (1).png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setFocusable(false);
+        jButton1.setRequestFocusEnabled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 70, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 660));
 
@@ -267,8 +296,6 @@ public class Principal extends javax.swing.JFrame {
             
             System.out.println("Reports");
             
-            Project2.hashTable.GenerateTable();
-            
             // Change Panel
             pnlContent.removeAll();
             pnlReportsP reportsPanel = new pnlReportsP(this);
@@ -285,6 +312,15 @@ public class Principal extends javax.swing.JFrame {
         l.show();
 
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServerActionPerformed
+
+    }//GEN-LAST:event_btnServerActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        SocketsFrame sf = new SocketsFrame();
+        sf.show();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,7 +363,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnCategory;
     private javax.swing.JButton btnClose1;
     private javax.swing.JButton btnReports;
+    private javax.swing.JButton btnServer;
     private javax.swing.JButton btnUser;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

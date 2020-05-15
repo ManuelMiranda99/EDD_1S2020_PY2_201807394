@@ -12,14 +12,20 @@ Use it as you like and have fun reading it ^^
  */
 package Objects;
 
+import java.awt.Image;
 import java.io.File;
 import java.io.FileWriter;
+import static java.lang.Thread.sleep;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
  * @author manuel
  */
 public class GraphvizGenerator {
+    
+    private String lastPNG = "";
     public GraphvizGenerator(){}
     
     // Generate image in the place where the project generates
@@ -38,11 +44,24 @@ public class GraphvizGenerator {
             }
             FileWriter writer = new FileWriter(file);
             writer.write(_dot);
-            writer.close();
+            writer.close();                       
             
             ProcessBuilder p = new ProcessBuilder("dot", "-Tpng", "-o", routePNG, file.getAbsolutePath());
             p.start();
+            
+            this.lastPNG = routePNG;
+            
         } catch (Exception e) {
         }
+    }
+    
+    public void PutInLabel(JLabel lbl){
+        try {
+            sleep(1500);
+            Image img = new ImageIcon(lastPNG).getImage();
+            ImageIcon img2 = new ImageIcon(img.getScaledInstance(770, 500, Image.SCALE_SMOOTH));
+            lbl.setIcon(img2);
+        } catch (Exception e) {
+        }        
     }
 }

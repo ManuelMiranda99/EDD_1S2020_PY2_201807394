@@ -25,6 +25,8 @@ public class Project2 {
     public static AVL avl = new AVL();
     public static User actualUser;
     public static GraphvizGenerator gGenerator = new GraphvizGenerator();
+    public static boolean state = false;
+    public static String IP = "";
     
     public static void main(String[] args) {
         Login l = new Login();

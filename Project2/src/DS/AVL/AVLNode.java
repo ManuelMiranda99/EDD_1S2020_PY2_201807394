@@ -28,7 +28,7 @@ public class AVLNode {
     public AVLNode(Category _category){
         right = left = null;
         this.category = _category;
-        this.books = new BTree(3);
+        this.books = new BTree(3, this.category);
         this.balance = 1;
     }
 
