@@ -13,6 +13,7 @@ Use it as you like and have fun reading it ^^
 package Interface;
 
 import project2.Project2;
+import static project2.Project2.auxiliarBlock;
 
 /**
  *
@@ -109,7 +110,6 @@ public class SocketsFrame extends javax.swing.JFrame {
         btnSendBlock.setForeground(new java.awt.Color(255, 255, 255));
         btnSendBlock.setText("ENVIAR BLOQUE");
         btnSendBlock.setBorderPainted(false);
-        btnSendBlock.setEnabled(false);
         btnSendBlock.setFocusPainted(false);
         btnSendBlock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +166,8 @@ public class SocketsFrame extends javax.swing.JFrame {
 
     private void btnSendBlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendBlockActionPerformed
 
+        auxiliarBlock.GenerateBlock();
+        
     }//GEN-LAST:event_btnSendBlockActionPerformed
 
     /**

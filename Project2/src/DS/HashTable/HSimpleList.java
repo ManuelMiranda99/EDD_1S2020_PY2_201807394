@@ -13,6 +13,7 @@ Use it as you like and have fun reading it ^^
 package DS.HashTable;
 
 import Objects.User;
+import project2.Project2;
 
 
 /**
@@ -87,6 +88,7 @@ public class HSimpleList {
         }else{
             aux2.next = aux.next;
         }        
+        Project2.auxiliarBlock.DeleteUser(aux.user);
         size--;
     }
     

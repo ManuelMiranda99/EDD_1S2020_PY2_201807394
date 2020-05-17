@@ -51,6 +51,7 @@ public class HashTable {
         editUser.setLastName(_lastName);
         editUser.setCareer(_career);
         editUser.setPassword(_password);
+        Project2.auxiliarBlock.EditUser(editUser);
     }
     
     public User Search(int _id){
@@ -67,16 +68,20 @@ public class HashTable {
         int index = Hashing(_newUser.getId());
         if(listOfUsers[index] == null)
             listOfUsers[index] = new HSimpleList();
+        
         int auxInt = listOfUsers[index].getSize();
         listOfUsers[index].InsertUser(_newUser);
-        if(auxInt != listOfUsers[index].getSize())
+        
+        if(auxInt != listOfUsers[index].getSize()){
             count++;
+            Project2.auxiliarBlock.CreateUser(_newUser);
+        }            
     }
     
     public void DeleteNode(int _id){
         int index = Hashing(_id);
         if(listOfUsers[index] == null)
-            return;
+            return;        
         listOfUsers[index].Delete(_id);
         if(listOfUsers[index].getSize() == 0){
             listOfUsers[index] = null;
