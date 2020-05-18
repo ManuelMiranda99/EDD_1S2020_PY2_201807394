@@ -104,7 +104,7 @@ public class HashTable {
                 +       "<td>Nombre</td>"
                 +       "<td>Apellido</td>"
                 +       "<td>Carrera</td>"
-                +       "<td>Contraseña</td>"
+                +       "<td>Contrasenia</td>"
                 +   "</tr>";
         for(int i=0; i < this.listOfUsers.length ; i++){
             if(listOfUsers[i] != null){
