@@ -330,7 +330,7 @@ public class BTree {
                     +   "edge[color=white];\n"
                     +   root.GenerateNode()
                     +   "}";
-            Project2.gGenerator.GenerateGraph(graph, "ArbolB" + category.getName() + ".txt");
+            Project2.gGenerator.GenerateGraph(graph, "ArbolB" + category.getName() + this.count + "Libros.txt");
         }
     }
 }
