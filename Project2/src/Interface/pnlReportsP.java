@@ -122,10 +122,12 @@ public class pnlReportsP extends javax.swing.JPanel {
                     Project2.gGenerator.PutInLabel(lblImageReports);
                     break;
                 case 6:
-
+                    Project2.ipNodes.GenerateDot();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
                     break;
                 case 7:
-
+                    Project2.blockchain.GenerateReport();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
                     break;
                 default:
                     System.out.println("Que leches");
@@ -163,10 +165,12 @@ public class pnlReportsP extends javax.swing.JPanel {
                     Project2.gGenerator.PutInLabel(lblImageReports);
                     break;
                 case 6:
-
+                    Project2.ipNodes.GenerateDot();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
                     break;
                 case 7:
-
+                    Project2.blockchain.GenerateReport();
+                    Project2.gGenerator.PutInLabel(lblImageReports);
                     break;
                 default:
                     System.out.println("Que leches");

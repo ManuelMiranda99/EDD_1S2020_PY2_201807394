@@ -30,9 +30,13 @@ public class GraphvizGenerator {
     
     // Generate image in the place where the project generates
     public void GenerateGraph(String _dot, String _name){        
-        try {            
-            File file = new File(_name);
-            file.setWritable(true);
+        try {
+            File dir = new File("appLibrary");
+            dir.mkdirs();
+            
+            File file = new File(dir.getAbsoluteFile() + "/" + _name);
+            file.setWritable(true);            
+
             String routePNG = "";
             for(String var : file.getAbsolutePath().split("/")){
                 if(var.contains(".txt")){                    

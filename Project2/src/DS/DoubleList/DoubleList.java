@@ -12,7 +12,6 @@ Use it as you like and have fun reading it ^^
  */
 package DS.DoubleList;
 
-import Objects.Block;
 import static project2.Project2.gGenerator;
 
 /**
@@ -61,8 +60,9 @@ public class DoubleList {
             return;
         String graph =  "digraph DoubleList {\n"
                 +       "graph[bgcolor=black, fontcolor=white, label=\"Blockchain\"];\n"
-                +       "node[shape=box, styled=filled, fillcolor=lemonchiffon1, color=lightgray];\n"
-                +       "edge[color=white];\n\n";
+                +       "node[shape=box, styled=filled, fillcolor=lemonchiffon1, color=lightgray, fontcolor=white];\n"
+                +       "edge[color=white];\n"
+                +       "rankdir=TB;\n";
         int x = 1;
         DLNode aux = first;
         while(aux != null){
@@ -83,6 +83,6 @@ public class DoubleList {
         }
         graph += "X" + x + "[dir=both]; \n"
                 + "\n}";
-        gGenerator.GenerateGraph(graph, "BlockChain.txt");
+        gGenerator.GenerateGraph(graph, "BlockChain" + size + ".txt");
     }
 }
