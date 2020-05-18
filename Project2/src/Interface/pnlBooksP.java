@@ -378,6 +378,7 @@ public class pnlBooksP extends javax.swing.JPanel {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         
         if(!txtTitleDelete.equals("")){
+            cmbBooks.removeAllItems();
             Project2.avl.FillComboBox(txtTitleDelete.getText(), cmbBooks);
             cmbBooks.setEnabled(true);
         }else{

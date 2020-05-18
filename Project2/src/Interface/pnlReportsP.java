@@ -39,18 +39,16 @@ public class pnlReportsP extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblImageReports = new javax.swing.JLabel();
         cmbReports = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         btnGenerate = new javax.swing.JButton();
         cmbCategories = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lblImageReports = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblImageReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgtry.png"))); // NOI18N
-        add(lblImageReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 770, 500));
 
         cmbReports.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Árbol AVL de categorías", "Árbol B. Seleccione Categoría...", "Tabla de Usuarios", "Recorrido preorden AVL", "Recorrido inorden AVL", "Recorrido postorden AVL", "Lista enlazada de nodos de la red", "Blockchain de operaciones realizadas" }));
         add(cmbReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 300, 40));
@@ -78,6 +76,13 @@ public class pnlReportsP extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Seleccione Reporte a Mostrar:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jScrollPane1.setOpaque(false);
+
+        lblImageReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imgtry.png"))); // NOI18N
+        jScrollPane1.setViewportView(lblImageReports);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 760, 480));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
@@ -178,6 +183,7 @@ public class pnlReportsP extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbReports;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblImageReports;
     // End of variables declaration//GEN-END:variables
 }

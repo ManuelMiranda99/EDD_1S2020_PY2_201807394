@@ -15,6 +15,7 @@ package DS.BTree;
 import Objects.Book;
 import Objects.Category;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import project2.Project2;
 
 /**
@@ -140,6 +141,7 @@ public class BTree {
         if(index != -1){
             if(n.books[index].getUserID() != _user){
                 // Show Message
+                JOptionPane.showMessageDialog(null, "No cuenta con permisos para eliminar este libro", "Sistema", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
             if(n.leaf){
@@ -152,7 +154,7 @@ public class BTree {
                     }
                 }
                 n.count--;
-                
+                this.count--;
             }else{
                 
                 BTreeNode prd = n.childs[index];
@@ -164,6 +166,7 @@ public class BTree {
                     prdBook = prd.books[prd.count - 1];
                     RecursiveDeleteBook(prd, prdBook.getISBN(), _user);
                     n.books[index] = prdBook;
+                    this.count--;
                     return;
                 }
                 
@@ -178,6 +181,7 @@ public class BTree {
                         nxtBook = nxt.books[nxt.count - 1];
                     }
                     RecursiveDeleteBook(nxt, nxtBook.getISBN(), _user);
+                    this.count--;
                     return;
                 }
                 
@@ -211,13 +215,14 @@ public class BTree {
                     n = n.childs[0];
                 }
                 RecursiveDeleteBook(prd, _ISBN, _user);
+                this.count--;
                 return;
             }
             
         }else{
             
-            for(index = 0; index <= n.count; index++){
-                if(n.books[index].getISBN() > _ISBN){
+            for(index = 0; index < n.count; index++){
+                if(n.books[index].getISBN() > _ISBN){   // Tira null pointer
                     break;
                 }
             }

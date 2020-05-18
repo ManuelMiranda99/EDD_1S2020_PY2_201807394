@@ -57,10 +57,8 @@ public class GraphvizGenerator {
     
     public void PutInLabel(JLabel lbl){
         try {
-            sleep(1500);
-            Image img = new ImageIcon(lastPNG).getImage();
-            ImageIcon img2 = new ImageIcon(img.getScaledInstance(770, 500, Image.SCALE_SMOOTH));
-            lbl.setIcon(img2);
+            sleep(1500);                        
+            lbl.setIcon(new ImageIcon(lastPNG));
         } catch (Exception e) {
         }        
     }
