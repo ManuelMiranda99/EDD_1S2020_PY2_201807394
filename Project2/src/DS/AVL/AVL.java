@@ -312,7 +312,7 @@ public class AVL {
                         "edge[color=white];\n";
             graph += root.GenerateNode();
             graph += "}";
-            Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL.txt");
+            Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL" + this.root.getBooks().count + ".txt");
         }        
     }
     

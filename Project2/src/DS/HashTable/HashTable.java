@@ -22,6 +22,7 @@ import project2.Project2;
 public class HashTable {
     
     private int count;                      // Amount of items saved (n)
+    private int numberReport = 0;
     private final int SIZE = 45;            // Size of the Hash-Table (m)
     private HSimpleList[] listOfUsers;      // List of users in the table
     
@@ -111,7 +112,7 @@ public class HashTable {
         
         graph += "\n\t</table>>];\n\n}";
         
-        Project2.gGenerator.GenerateGraph(graph, "TablaDeUsuarios.txt");
-        
+        Project2.gGenerator.GenerateGraph(graph, "TablaDeUsuarios" + numberReport + ".txt");
+        numberReport++;
     }
 }
