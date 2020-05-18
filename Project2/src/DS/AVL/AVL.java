@@ -290,6 +290,7 @@ public class AVL {
     }
     
     /*----------REPORTS----------*/
+    private int numberReport = 0;
     public void FillComboBox(JComboBox _cmb){
         _cmb.removeAllItems();
         RecursiveFillComboBox(root, _cmb);
@@ -312,7 +313,8 @@ public class AVL {
                         "edge[color=white];\n";
             graph += root.GenerateNode();
             graph += "}";
-            Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL" + this.root.getBooks().count + ".txt");
+            Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL" + numberReport + ".txt");
+            numberReport++;
         }        
     }
     
@@ -322,12 +324,13 @@ public class AVL {
     
     private void GenerateGraphviz(String _name){
         Project2.gGenerator.GenerateGraph(report.GenerateDot(), _name);
+        numberReport++;
     }
     
     public void PreOrderReport(){
         DeleteReportList();
         RecursivePreOrder(root);
-        GenerateGraphviz("AVLPreOrderReport.txt");
+        GenerateGraphviz("AVLPreOrderReport" + numberReport + ".txt");
     }
     
     private void RecursivePreOrder(AVLNode root){
@@ -341,7 +344,7 @@ public class AVL {
     public void InOrderReport(){
         DeleteReportList();
         RecursiveInOrder(root);
-        GenerateGraphviz("AVLInOrderReport.txt");
+        GenerateGraphviz("AVLInOrderReport" + numberReport + ".txt");
     }
     
     private void RecursiveInOrder(AVLNode root){
@@ -355,7 +358,7 @@ public class AVL {
     public void PostOrderReport(){
         DeleteReportList();
         RecursivePostOrder(root);
-        GenerateGraphviz("AVLPostOrderReport.txt");
+        GenerateGraphviz("AVLPostOrderReport" + numberReport + ".txt");
     }
     
     private void RecursivePostOrder(AVLNode root){
