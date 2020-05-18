@@ -12,7 +12,9 @@ Use it as you like and have fun reading it ^^
  */
 package DS.AVL;
 
+import DS.BTree.BTreeNode;
 import DS.SimpleList.SimpleList;
+import Objects.Book;
 import Objects.Category;
 import javax.swing.JComboBox;
 import project2.Project2;
@@ -239,8 +241,30 @@ public class AVL {
         }
     }
     
+    Book aux = null;
+    public Book GetBook(int _ISBN){
+        RecursiveGetBook(root, _ISBN);
+        return aux;
+    }
+    
+    private void RecursiveGetBook(AVLNode root, int _ISBN){
+        if(root != null){
+            BTreeNode aux = root.getBooks().SearchByISBN(_ISBN);
+            if(aux != null){
+                for(int i = 0; i < aux.count ; i++){
+                    if(aux.books[i].getISBN() == _ISBN){
+                        this.aux = aux.books[i];
+                        return;
+                    }
+                }
+            }
+            RecursiveGetBook(root.left, _ISBN);
+            RecursiveGetBook(root.right, _ISBN);
+        }
+    }       
+    
     public void DeleteISBN(int _ISBN, int _user){
-        
+        RecursiveDelete(root, _ISBN, _user);
     }
     
     private void RecursiveDelete(AVLNode root, int _ISBN, int _user){
@@ -250,6 +274,18 @@ public class AVL {
             }
             RecursiveDelete(root.left, _ISBN, _user);
             RecursiveDelete(root.right, _ISBN, _user);
+        }
+    }
+   
+    public void FillComboBox(String _title, JComboBox _cmb){
+        RecursiveFillComboBox(root, _title, _cmb);
+    }
+    
+    private void RecursiveFillComboBox(AVLNode root, String _title, JComboBox _cmb){
+        if(root != null){
+            RecursiveFillComboBox(root.left, _title, _cmb);
+            root.getBooks().FillComboBox(_title, _cmb);
+            RecursiveFillComboBox(root.right, _title, _cmb);
         }
     }
     

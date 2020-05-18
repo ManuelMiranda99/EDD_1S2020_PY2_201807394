@@ -14,6 +14,7 @@ package DS.BTree;
 
 import Objects.Book;
 import Objects.Category;
+import javax.swing.JComboBox;
 import project2.Project2;
 
 /**
@@ -308,6 +309,10 @@ public class BTree {
             }
             
         }
+    }
+    
+    public void FillComboBox(String _title, JComboBox _cmb){
+        root.FillComboBox(_title, _cmb);
     }
     
     public void GenerateTree(){

@@ -16,6 +16,7 @@ import Objects.Book;
 import Objects.Category;
 import Objects.JSONReader;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import project2.Project2;
 import static project2.Project2.actualUser;
 import static project2.Project2.avl;
@@ -78,6 +79,7 @@ public class pnlBooksP extends javax.swing.JPanel {
         rdbISBN = new javax.swing.JRadioButton();
         rdbName = new javax.swing.JRadioButton();
         btnSearch = new javax.swing.JButton();
+        btnShow = new javax.swing.JButton();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(820, 590));
@@ -197,7 +199,7 @@ public class pnlBooksP extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        pnlDelete.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 280, 50));
+        pnlDelete.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 280, 50));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
@@ -220,7 +222,7 @@ public class pnlBooksP extends javax.swing.JPanel {
         txtTitleDelete.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         pnlDelete.add(txtTitleDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 270, 40));
 
-        cmbBooks.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        cmbBooks.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cmbBooks.setEnabled(false);
         pnlDelete.add(cmbBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 320, 40));
 
@@ -234,7 +236,7 @@ public class pnlBooksP extends javax.swing.JPanel {
                 rdbISBNActionPerformed(evt);
             }
         });
-        pnlDelete.add(rdbISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 320, -1));
+        pnlDelete.add(rdbISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 320, -1));
 
         rdbName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         rdbName.setForeground(new java.awt.Color(0, 0, 0));
@@ -245,7 +247,7 @@ public class pnlBooksP extends javax.swing.JPanel {
                 rdbNameActionPerformed(evt);
             }
         });
-        pnlDelete.add(rdbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 320, -1));
+        pnlDelete.add(rdbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 320, -1));
 
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/lupa (1).png"))); // NOI18N
         btnSearch.setOpaque(false);
@@ -255,6 +257,19 @@ public class pnlBooksP extends javax.swing.JPanel {
             }
         });
         pnlDelete.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 50, 40));
+
+        btnShow.setBackground(new java.awt.Color(51, 51, 255));
+        btnShow.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnShow.setForeground(new java.awt.Color(255, 255, 255));
+        btnShow.setText("VER LIBRO");
+        btnShow.setBorderPainted(false);
+        btnShow.setFocusPainted(false);
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
+        pnlDelete.add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 320, 40));
 
         jPanel1.add(pnlDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 360, 460));
 
@@ -310,30 +325,33 @@ public class pnlBooksP extends javax.swing.JPanel {
 
         if(rdbISBN.isSelected()){
             // Delete by ISBN
-            if(!txtISBN.getText().equals("")){
+            if(!txtISBNDelete.getText().equals("")){
                 try {
-                    int ISBN = Integer.parseInt(txtISBN.getText());
+                    int ISBN = Integer.parseInt(txtISBNDelete.getText());
                     
                     if(avl.CheckISBN(ISBN)){
-                        
+                        Project2.avl.DeleteISBN(ISBN, Project2.actualUser.getId());
                     }
                     else{
-                        // Non existing book
+                        JOptionPane.showMessageDialog(null, "No existe el libro que desea eliminar", "Sistema", JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Ingrese solo numeros en el campo ISBN", "Sistema", JOptionPane.WARNING_MESSAGE);
                 }
             }
             else{
-                // Non existing text ISBN
+                JOptionPane.showMessageDialog(null, "Escriba algo en el campo ISBN", "Sistema", JOptionPane.WARNING_MESSAGE);
             }
         }
         else{
             // Delete by Name and selected book
             if(!txtTitleDelete.getText().equals("") && (cmbBooks.getItemCount() > 0 || cmbBooks.getSelectedIndex() != -1)){
-                
+                String auxS = cmbBooks.getSelectedItem().toString().split("-")[0];
+                int ISBN = Integer.parseInt(auxS);
+                Project2.avl.DeleteISBN(ISBN, Project2.actualUser.getId());
             }
             else{
-                
+                JOptionPane.showMessageDialog(null, "No ha buscado libro", "Sistema", JOptionPane.WARNING_MESSAGE);
             }
         }
 
@@ -359,9 +377,51 @@ public class pnlBooksP extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         
-        
+        if(!txtTitleDelete.equals("")){
+            Project2.avl.FillComboBox(txtTitleDelete.getText(), cmbBooks);
+            cmbBooks.setEnabled(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Ingrese un titulo", "Sistema", JOptionPane.WARNING_MESSAGE);
+        }
         
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        
+        if(rdbISBN.isSelected()){
+            // Show by ISBN
+            if(!txtISBNDelete.getText().equals("")){
+                try {
+                    int ISBN = Integer.parseInt(txtISBNDelete.getText());
+                    
+                    if(avl.CheckISBN(ISBN)){
+                        Book aux = Project2.avl.GetBook(Integer.parseInt(txtISBNDelete.getText()));
+                        JOptionPane.showMessageDialog(null, "ISBN: " + aux.getISBN() + "\nTitulo: " + aux.getTitle() + "\nAutor: " + aux.getAuthor() + "\nEditorial: " + aux.getEditorial() + "\nAño: " + aux.getYear() +  "\nEdicion: " + aux.getEdition() + "\nCategoria: " + aux.getCategory().getName() + "\nIdioma: " + aux.getLanguage(), "System", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else{
+                        // Non existing book
+                    }
+                } catch (Exception e) {
+                }
+            }
+            else{
+                // Non existing text ISBN
+            }
+        }
+        else{
+            // Show by Name and selected book
+            if(!txtTitleDelete.getText().equals("") && (cmbBooks.getItemCount() > 0 || cmbBooks.getSelectedIndex() != -1)){
+                String auxS = cmbBooks.getSelectedItem().toString().split("-")[0];
+                int ISBN = Integer.parseInt(auxS);
+                Book aux = Project2.avl.GetBook(ISBN);
+                JOptionPane.showMessageDialog(null, "ISBN: " + aux.getISBN() + "\nTitulo: " + aux.getTitle() + "\nAutor: " + aux.getAuthor() + "\nEditorial: " + aux.getEditorial() + "\nAño: " + aux.getYear() +  "\nEdicion: " + aux.getEdition() + "\nCategoria: " + aux.getCategory().getName() + "\nIdioma: " + aux.getLanguage(), "System", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                
+            }
+        }                               
+        
+    }//GEN-LAST:event_btnShowActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -369,6 +429,7 @@ public class pnlBooksP extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnLoadBooks;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnShow;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbBooks;
     private javax.swing.JLabel jLabel1;
