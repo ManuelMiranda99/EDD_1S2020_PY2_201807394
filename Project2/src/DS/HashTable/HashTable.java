@@ -82,11 +82,13 @@ public class HashTable {
     public void DeleteNode(int _id){
         int index = Hashing(_id);
         if(listOfUsers[index] == null)
-            return;        
+            return;
+        User user = listOfUsers[index].Search(_id).user;
         listOfUsers[index].Delete(_id);
         if(listOfUsers[index].getSize() == 0){
             listOfUsers[index] = null;
         }
+        Project2.auxiliarBlock.DeleteUser(user);
         count--;
     }
     

@@ -115,6 +115,7 @@ public class BTree {
             _root.books[i + 1] = _book;
             _root.count++;
             this.count++;
+            Project2.auxiliarBlock.CreateBook(_book);
         } else {
             int i=0;
             for(i = _root.count - 1; i >= 0 && _ISBN < _root.books[i].getISBN(); i--){}
@@ -131,7 +132,7 @@ public class BTree {
         
     }
     
-    public void DeleteBook(int _ISBN, int _user){
+    public void DeleteBook(int _ISBN, int _user){        
         RecursiveDeleteBook(root, _ISBN, _user);
     }
     

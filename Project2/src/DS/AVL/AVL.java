@@ -80,8 +80,10 @@ public class AVL {
     }
     
     private AVLNode RecursiveAdd(AVLNode root, Category _category){
-        if(root == null)
+        if(root == null){
+            Project2.auxiliarBlock.CreateCategory(_category);
             return new AVLNode(_category);
+        }            
 
         // _category.getName < root.getCategory.getName 
         if(_category.getName().compareToIgnoreCase(root.getCategory().getName()) < 0){
@@ -147,6 +149,8 @@ public class AVL {
                 return root;
             }
             else{
+                Category auxCat = this.SearchCategory(_category).getCategory();
+                Project2.auxiliarBlock.DeleteCategory(auxCat);
                 // DELETE NODE
                 // Node without one or no childs
                 if(root.left == null || root.right == null){
