@@ -1,0 +1,19 @@
+{
+	"Usuarios": [
+		{
+			"Carnet": 201807394,
+			"Nombre": "Manuel",
+			"Apellido": "Miranda",
+			"Carrera": "Ing. Ciencias y Sistemas",
+			"Password": "contra"
+		},
+		{
+			"Carnet": 201807396,
+			"Nombre": "Otto",
+			"Apellido": "Galicia",
+			"Carrera": "Ing. Ciencias y Sistemas",
+			"Password": "contra"
+		}
+	]
+}
+

@@ -1,0 +1,186 @@
+{
+	"Usuarios": [
+		{
+			"Carnet": 201807394,
+			"Nombre": "Manuel",
+			"Apellido": "Miranda",
+			"Carrera": "Ing. Ciencias y Sistemas",
+			"Password": "contra"
+		},
+		{
+			"Carnet": 200463651,
+			"Nombre": "Fanchon",
+			"Apellido": "Dorcy",
+			"Carrera": "Baco",
+			"Password": "02AHasaY"
+		},
+		{
+			"Carnet": 201989113,
+			"Nombre": "Pierette",
+			"Apellido": "Vanni",
+			"Carrera": "Streamer nivel yosoyfr",
+			"Password": "dC308RVN"
+		},
+		{
+			"Carnet": 201397293,
+			"Nombre": "Lila",
+			"Apellido": "Adalbert",
+			"Carrera": "Quimica",
+			"Password": "5dUwK61X"
+		},
+		{
+			"Carnet": 201697058,
+			"Nombre": "Blake",
+			"Apellido": "Sallyann",
+			"Carrera": "Pajearse el hoyo",
+			"Password": "syXFmCU3"
+		},
+		{
+			"Carnet": 201076957,
+			"Nombre": "Olwen",
+			"Apellido": "Miru",
+			"Carrera": "Ing. Ciencias y Sistemas",
+			"Password": "aGF7HY6H"
+		},
+		{
+			"Carnet": 200062129,
+			"Nombre": "Nadine",
+			"Apellido": "Colleen",
+			"Carrera": "Administracion",
+			"Password": "x0yIzfrp"
+		},
+		{
+			"Carnet": 201763777,
+			"Nombre": "Doralynne",
+			"Apellido": "Cleavland",
+			"Carrera": "Matematica",
+			"Password": "pT3XEVTU"
+		},
+		{
+			"Carnet": 201725127,
+			"Nombre": "Feliza",
+			"Apellido": "Alarise",
+			"Carrera": "Baco",
+			"Password": "rhYmhPBb"
+		},
+		{
+			"Carnet": 201065378,
+			"Nombre": "Aili",
+			"Apellido": "Fairweather",
+			"Carrera": "Ing. Quimica",
+			"Password": "Wt73sZwU"
+		},
+		{
+			"Carnet": 200070088,
+			"Nombre": "Ezmeralda",
+			"Apellido": "Ambrosia",
+			"Carrera": "Odontologia",
+			"Password": "qFL4i7gB"
+		},
+		{
+			"Carnet": 201239547,
+			"Nombre": "Gavrielle",
+			"Apellido": "Rubie",
+			"Carrera": "Maestria en odiar a Daniel",
+			"Password": "5syuJIYF"
+		},
+		{
+			"Carnet": 201249259,
+			"Nombre": "Nerta",
+			"Apellido": "Reneta",
+			"Carrera": "Admin de Pagina de Facebook",
+			"Password": "BRpUybww"
+		},
+		{
+			"Carnet": 201289601,
+			"Nombre": "Patricia",
+			"Apellido": "Hebner",
+			"Carrera": "Contabilidad",
+			"Password": "TAyjUhmj"
+		},
+		{
+			"Carnet": 201199700,
+			"Nombre": "Edee",
+			"Apellido": "O'Neill",
+			"Carrera": "Fisica",
+			"Password": "tkZJq5ci"
+		},
+		{
+			"Carnet": 200287897,
+			"Nombre": "Gwyneth",
+			"Apellido": "Pattin",
+			"Carrera": "Ing. Industrial",
+			"Password": "V2kNqgcN"
+		},
+		{
+			"Carnet": 201287819,
+			"Nombre": "Emmey",
+			"Apellido": "Niles",
+			"Carrera": "Ing. Industrial",
+			"Password": "vYJnwUcN"
+		},
+		{
+			"Carnet": 200411911,
+			"Nombre": "Melodie",
+			"Apellido": "Bahr",
+			"Carrera": "Derecho",
+			"Password": "1QcnSELO"
+		},
+		{
+			"Carnet": 200344941,
+			"Nombre": "Sherrie",
+			"Apellido": "Burkle",
+			"Carrera": "Matematica",
+			"Password": "oAdiM7ek"
+		},
+		{
+			"Carnet": 200204556,
+			"Nombre": "Elena",
+			"Apellido": "Cressida",
+			"Carrera": "Fuckboy/girl",
+			"Password": "zSVJUv8e"
+		},
+		{
+			"Carnet": 201243270,
+			"Nombre": "Lily",
+			"Apellido": "Koziara",
+			"Carrera": "Maestria en odiar a Daniel",
+			"Password": "m6N6aeqy"
+		},
+		{
+			"Carnet": 200984794,
+			"Nombre": "Felice",
+			"Apellido": "Wareing",
+			"Carrera": "Quimica",
+			"Password": "dVabZW7z"
+		},
+		{
+			"Carnet": 200331066,
+			"Nombre": "Jacquetta",
+			"Apellido": "McAdams",
+			"Carrera": "Quimica",
+			"Password": "DA2eN3DL"
+		},
+		{
+			"Carnet": 200990099,
+			"Nombre": "Sheelagh",
+			"Apellido": "Allys",
+			"Carrera": "Admin de Pagina de Facebook",
+			"Password": "7pTmSbHt"
+		},
+		{
+			"Carnet": 200295874,
+			"Nombre": "Vere",
+			"Apellido": "Phi",
+			"Carrera": "Ing. en ilusionarme a lo pendejo",
+			"Password": "f0WucA16"
+		},
+		{
+			"Carnet": 201772093,
+			"Nombre": "Jorry",
+			"Apellido": "Colyer",
+			"Carrera": "Ing. Quimica",
+			"Password": "sJO4J52h"
+		}
+	]
+}
