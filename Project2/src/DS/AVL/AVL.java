@@ -312,7 +312,7 @@ public class AVL {
         if(root != null){
             String graph =  "digraph avl {\n"                                   +
                         "rankdir=TB;\n"                                     +
-                        "graph[bgcolor=black, label=\"Categorias\"];\n"     +
+                        "graph[bgcolor=black, label=\"Categorias\", fontcolor=white];\n"     +
                         "node[style=filled, fillcolor=lemonchiffon1];\n"    +
                         "edge[color=white];\n";
             graph += root.GenerateNode();

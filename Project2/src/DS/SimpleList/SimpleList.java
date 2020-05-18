@@ -49,9 +49,10 @@ public class SimpleList {
     
     public String GenerateDot(){
         String graph =  "digraph L{ \n"                                     + 
-                        "graph[label=\"Lista Simple\"]; \n"                 + 
+                        "graph[label=\"Lista Simple\", bgcolor=black, fontcolor=white]; \n"                 + 
                         "rankdir=LR;\n"                                     +
-                        "node[shape=box,color=lightblue,style=filled];\n";
+                        "node[shape=box,fillcolor=lemonchiffon1,style=filled];"
+                +       "edge[color=white];\n\n";
         int x = 1;
         SLNode aux = root;
         if(aux != null){

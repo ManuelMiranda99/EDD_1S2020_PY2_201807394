@@ -31,7 +31,7 @@ public class GraphvizGenerator {
     // Generate image in the place where the project generates
     public void GenerateGraph(String _dot, String _name){        
         try {
-            File dir = new File("appLibrary");
+            File dir = new File("appLibrary//Reports");
             dir.mkdirs();
             
             File file = new File(dir.getAbsoluteFile() + "/" + _name);
