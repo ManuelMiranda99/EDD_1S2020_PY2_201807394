@@ -12,7 +12,9 @@ Use it as you like and have fun reading it ^^
  */
 package Objects;
 
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -63,8 +65,8 @@ public class JSONReader {
         int count = 0, countC = 0;
         try {
             JSONParser parser = new JSONParser();
-            
-            JSONObject json = (JSONObject) parser.parse(new FileReader(OpenFile()));
+            InputStreamReader reader = new InputStreamReader(new FileInputStream(OpenFile()), "UTF8");
+            JSONObject json = (JSONObject) parser.parse(reader);
             
             JSONArray books = (JSONArray) json.get("libros");
             

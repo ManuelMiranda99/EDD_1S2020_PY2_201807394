@@ -12,7 +12,9 @@ Use it as you like and have fun reading it ^^
  */
 package DS.AVL;
 
+import DS.BTree.BTreeNode;
 import DS.SimpleList.SimpleList;
+import Objects.Book;
 import Objects.Category;
 import javax.swing.JComboBox;
 import project2.Project2;
@@ -78,8 +80,10 @@ public class AVL {
     }
     
     private AVLNode RecursiveAdd(AVLNode root, Category _category){
-        if(root == null)
+        if(root == null){
+            Project2.auxiliarBlock.CreateCategory(_category);
             return new AVLNode(_category);
+        }            
 
         // _category.getName < root.getCategory.getName 
         if(_category.getName().compareToIgnoreCase(root.getCategory().getName()) < 0){
@@ -145,6 +149,8 @@ public class AVL {
                 return root;
             }
             else{
+                Category auxCat = this.SearchCategory(_category).getCategory();
+                Project2.auxiliarBlock.DeleteCategory(auxCat);
                 // DELETE NODE
                 // Node without one or no childs
                 if(root.left == null || root.right == null){
@@ -239,8 +245,30 @@ public class AVL {
         }
     }
     
+    Book aux = null;
+    public Book GetBook(int _ISBN){
+        RecursiveGetBook(root, _ISBN);
+        return aux;
+    }
+    
+    private void RecursiveGetBook(AVLNode root, int _ISBN){
+        if(root != null){
+            BTreeNode aux = root.getBooks().SearchByISBN(_ISBN);
+            if(aux != null){
+                for(int i = 0; i < aux.count ; i++){
+                    if(aux.books[i].getISBN() == _ISBN){
+                        this.aux = aux.books[i];
+                        return;
+                    }
+                }
+            }
+            RecursiveGetBook(root.left, _ISBN);
+            RecursiveGetBook(root.right, _ISBN);
+        }
+    }       
+    
     public void DeleteISBN(int _ISBN, int _user){
-        
+        RecursiveDelete(root, _ISBN, _user);
     }
     
     private void RecursiveDelete(AVLNode root, int _ISBN, int _user){
@@ -252,8 +280,21 @@ public class AVL {
             RecursiveDelete(root.right, _ISBN, _user);
         }
     }
+   
+    public void FillComboBox(String _title, JComboBox _cmb){
+        RecursiveFillComboBox(root, _title, _cmb);
+    }
+    
+    private void RecursiveFillComboBox(AVLNode root, String _title, JComboBox _cmb){
+        if(root != null){
+            RecursiveFillComboBox(root.left, _title, _cmb);
+            root.getBooks().FillComboBox(_title, _cmb);
+            RecursiveFillComboBox(root.right, _title, _cmb);
+        }
+    }
     
     /*----------REPORTS----------*/
+    private int numberReport = 0;
     public void FillComboBox(JComboBox _cmb){
         _cmb.removeAllItems();
         RecursiveFillComboBox(root, _cmb);
@@ -271,12 +312,13 @@ public class AVL {
         if(root != null){
             String graph =  "digraph avl {\n"                                   +
                         "rankdir=TB;\n"                                     +
-                        "graph[bgcolor=black, label=\"Categorias\"];\n"     +
+                        "graph[bgcolor=black, label=\"Categorias\", fontcolor=white];\n"     +
                         "node[style=filled, fillcolor=lemonchiffon1];\n"    +
                         "edge[color=white];\n";
             graph += root.GenerateNode();
             graph += "}";
-            Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL.txt");
+            Project2.gGenerator.GenerateGraph(graph, "CategoriasAVL" + numberReport + ".txt");
+            numberReport++;
         }        
     }
     
@@ -286,12 +328,13 @@ public class AVL {
     
     private void GenerateGraphviz(String _name){
         Project2.gGenerator.GenerateGraph(report.GenerateDot(), _name);
+        numberReport++;
     }
     
     public void PreOrderReport(){
         DeleteReportList();
         RecursivePreOrder(root);
-        GenerateGraphviz("AVLPreOrderReport.txt");
+        GenerateGraphviz("AVLPreOrderReport" + numberReport + ".txt");
     }
     
     private void RecursivePreOrder(AVLNode root){
@@ -305,7 +348,7 @@ public class AVL {
     public void InOrderReport(){
         DeleteReportList();
         RecursiveInOrder(root);
-        GenerateGraphviz("AVLInOrderReport.txt");
+        GenerateGraphviz("AVLInOrderReport" + numberReport + ".txt");
     }
     
     private void RecursiveInOrder(AVLNode root){
@@ -319,7 +362,7 @@ public class AVL {
     public void PostOrderReport(){
         DeleteReportList();
         RecursivePostOrder(root);
-        GenerateGraphviz("AVLPostOrderReport.txt");
+        GenerateGraphviz("AVLPostOrderReport" + numberReport + ".txt");
     }
     
     private void RecursivePostOrder(AVLNode root){

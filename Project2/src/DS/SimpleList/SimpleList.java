@@ -17,27 +17,42 @@ package DS.SimpleList;
  * @author manuel
  */
 public class SimpleList {
-    private SLNode root;
+    public SLNode root;
+    private SLNode last;
+    public int size = 0;
     
     public SimpleList(){
-        root = null;
+        root = last = null;
     }
     
     public void Insert(Object _newObject){
         SLNode newNode = new SLNode(_newObject);
         if(root == null){
-            root = newNode;
+            root = last = newNode;
         }else{
             newNode.next = root;
             root = newNode;
         }
+        size++;
+    }
+    
+    public void InsertLast(Object _newObject){
+        SLNode newNode = new SLNode(_newObject);
+        if(root == null)
+            root = last = newNode;
+        else{
+            last.next = newNode;
+            last = newNode;
+        }
+        size++;
     }
     
     public String GenerateDot(){
         String graph =  "digraph L{ \n"                                     + 
-                        "graph[label=\"Lista Simple\"]; \n"                 + 
+                        "graph[label=\"Lista Simple\", bgcolor=black, fontcolor=white]; \n"                 + 
                         "rankdir=LR;\n"                                     +
-                        "node[shape=box,color=lightblue,style=filled];\n";
+                        "node[shape=box,fillcolor=lemonchiffon1,style=filled];"
+                +       "edge[color=white];\n\n";
         int x = 1;
         SLNode aux = root;
         if(aux != null){
@@ -57,5 +72,19 @@ public class SimpleList {
             return graph;
         }                
         return null;
+    }
+    
+    public SimpleList CopyList(){
+        SimpleList newList = new SimpleList();
+        
+        SLNode aux = root;
+        
+        while(aux != null){
+            SLNode newNode = new SLNode(aux.value);
+            newList.InsertLast(newNode);
+            aux = aux.next;
+        }
+        
+        return newList;
     }
 }

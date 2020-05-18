@@ -14,6 +14,8 @@ package DS.BTree;
 
 import Objects.Book;
 import Objects.Category;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import project2.Project2;
 
 /**
@@ -113,6 +115,7 @@ public class BTree {
             _root.books[i + 1] = _book;
             _root.count++;
             this.count++;
+            Project2.auxiliarBlock.CreateBook(_book);
         } else {
             int i=0;
             for(i = _root.count - 1; i >= 0 && _ISBN < _root.books[i].getISBN(); i--){}
@@ -129,7 +132,7 @@ public class BTree {
         
     }
     
-    public void DeleteBook(int _ISBN, int _user){
+    public void DeleteBook(int _ISBN, int _user){        
         RecursiveDeleteBook(root, _ISBN, _user);
     }
     
@@ -139,6 +142,7 @@ public class BTree {
         if(index != -1){
             if(n.books[index].getUserID() != _user){
                 // Show Message
+                JOptionPane.showMessageDialog(null, "No cuenta con permisos para eliminar este libro", "Sistema", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
             if(n.leaf){
@@ -151,7 +155,7 @@ public class BTree {
                     }
                 }
                 n.count--;
-                
+                this.count--;
             }else{
                 
                 BTreeNode prd = n.childs[index];
@@ -163,6 +167,7 @@ public class BTree {
                     prdBook = prd.books[prd.count - 1];
                     RecursiveDeleteBook(prd, prdBook.getISBN(), _user);
                     n.books[index] = prdBook;
+                    this.count--;
                     return;
                 }
                 
@@ -177,6 +182,7 @@ public class BTree {
                         nxtBook = nxt.books[nxt.count - 1];
                     }
                     RecursiveDeleteBook(nxt, nxtBook.getISBN(), _user);
+                    this.count--;
                     return;
                 }
                 
@@ -210,13 +216,14 @@ public class BTree {
                     n = n.childs[0];
                 }
                 RecursiveDeleteBook(prd, _ISBN, _user);
+                this.count--;
                 return;
             }
             
         }else{
             
-            for(index = 0; index <= n.count; index++){
-                if(n.books[index].getISBN() > _ISBN){
+            for(index = 0; index < n.count; index++){
+                if(n.books[index].getISBN() > _ISBN){   // Tira null pointer
                     break;
                 }
             }
@@ -310,6 +317,10 @@ public class BTree {
         }
     }
     
+    public void FillComboBox(String _title, JComboBox _cmb){
+        root.FillComboBox(_title, _cmb);
+    }
+    
     public void GenerateTree(){
         if(root.count != 0){
             String graph = 
@@ -320,7 +331,7 @@ public class BTree {
                     +   "edge[color=white];\n"
                     +   root.GenerateNode()
                     +   "}";
-            Project2.gGenerator.GenerateGraph(graph, "ArbolB" + category.getName() + ".txt");
+            Project2.gGenerator.GenerateGraph(graph, "ArbolB" + category.getName() + this.count + "Libros.txt");
         }
     }
 }

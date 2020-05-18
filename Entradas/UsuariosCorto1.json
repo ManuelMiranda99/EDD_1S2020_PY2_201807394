@@ -1,0 +1,186 @@
+{
+	"Usuarios": [
+		{
+			"Carnet": 201807394,
+			"Nombre": "Manuel",
+			"Apellido": "Miranda",
+			"Carrera": "Ing. Ciencias y Sistemas",
+			"Password": "contra"
+		},
+		{
+			"Carnet": 200384541,
+			"Nombre": "Dorothy",
+			"Apellido": "Daegal",
+			"Carrera": "Ing. en ilusionarme a lo pendejo",
+			"Password": "x83g7Wet"
+		},
+		{
+			"Carnet": 200484175,
+			"Nombre": "Madalyn",
+			"Apellido": "Ummersen",
+			"Carrera": "Youtuber",
+			"Password": "VeHIFlY9"
+		},
+		{
+			"Carnet": 201418548,
+			"Nombre": "Jerry",
+			"Apellido": "Lewes",
+			"Carrera": "Ing. Ciencias y Sistemas",
+			"Password": "ziMB7YDR"
+		},
+		{
+			"Carnet": 201430123,
+			"Nombre": "Meghann",
+			"Apellido": "Tayib",
+			"Carrera": "Ing. en Alimentos",
+			"Password": "xsvDAdE4"
+		},
+		{
+			"Carnet": 200668148,
+			"Nombre": "Chastity",
+			"Apellido": "Federica",
+			"Carrera": "Contabilidad",
+			"Password": "xz5l7ny7"
+		},
+		{
+			"Carnet": 201981196,
+			"Nombre": "Madelle",
+			"Apellido": "Vilma",
+			"Carrera": "Comunicacion",
+			"Password": "yhx6syF2"
+		},
+		{
+			"Carnet": 200094128,
+			"Nombre": "Bill",
+			"Apellido": "Narton",
+			"Carrera": "Magia",
+			"Password": "Fbor7CFg"
+		},
+		{
+			"Carnet": 201416790,
+			"Nombre": "Cecile",
+			"Apellido": "Faust",
+			"Carrera": "Ing. Ciencias y Sistemas",
+			"Password": "kmekjIGp"
+		},
+		{
+			"Carnet": 201101142,
+			"Nombre": "Loree",
+			"Apellido": "Kristi",
+			"Carrera": "Fuckboy/girl",
+			"Password": "JedLbI8I"
+		},
+		{
+			"Carnet": 200457560,
+			"Nombre": "Katharina",
+			"Apellido": "Nore",
+			"Carrera": "Ing. Civil",
+			"Password": "0KnCXiTM"
+		},
+		{
+			"Carnet": 200595497,
+			"Nombre": "Selia",
+			"Apellido": "Kosey",
+			"Carrera": "Ing. Quimica",
+			"Password": "GRinnaNd"
+		},
+		{
+			"Carnet": 200868277,
+			"Nombre": "Jacquetta",
+			"Apellido": "Glovsky",
+			"Carrera": "Streamer nivel yosoyfr",
+			"Password": "15PEmAiO"
+		},
+		{
+			"Carnet": 200921067,
+			"Nombre": "Janenna",
+			"Apellido": "Wolfgram",
+			"Carrera": "Ing. Civil",
+			"Password": "RKJpEwHh"
+		},
+		{
+			"Carnet": 200683599,
+			"Nombre": "Christian",
+			"Apellido": "Thad",
+			"Carrera": "Ing. en Alimentos",
+			"Password": "unkyyAwM"
+		},
+		{
+			"Carnet": 200509942,
+			"Nombre": "Barbi",
+			"Apellido": "Drisko",
+			"Carrera": "Fisica",
+			"Password": "jEtvtIlJ"
+		},
+		{
+			"Carnet": 200116734,
+			"Nombre": "Vevay",
+			"Apellido": "Fitzsimmons",
+			"Carrera": "Ing. Quimica",
+			"Password": "JFut9xVK"
+		},
+		{
+			"Carnet": 200793096,
+			"Nombre": "Therine",
+			"Apellido": "Bethany",
+			"Carrera": "Pajearse el hoyo",
+			"Password": "fb0wSBUN"
+		},
+		{
+			"Carnet": 201989115,
+			"Nombre": "Diena",
+			"Apellido": "Firmin",
+			"Carrera": "Maestria en odiar a Daniel",
+			"Password": "kyDNhMht"
+		},
+		{
+			"Carnet": 200828234,
+			"Nombre": "Madelle",
+			"Apellido": "Fulmer",
+			"Carrera": "Atleta",
+			"Password": "rpubJTkA"
+		},
+		{
+			"Carnet": 200331484,
+			"Nombre": "Robinia",
+			"Apellido": "Carey",
+			"Carrera": "Odontologia",
+			"Password": "9FzHcg81"
+		},
+		{
+			"Carnet": 200209495,
+			"Nombre": "Frieda",
+			"Apellido": "Travax",
+			"Carrera": "Ing. en Alimentos",
+			"Password": "9HQMZhhh"
+		},
+		{
+			"Carnet": 201324559,
+			"Nombre": "Monika",
+			"Apellido": "Rosette",
+			"Carrera": "Youtuber",
+			"Password": "9Zjmdbl5"
+		},
+		{
+			"Carnet": 200000513,
+			"Nombre": "Marcy",
+			"Apellido": "Harned",
+			"Carrera": "Comunicacion",
+			"Password": "KpWVf8Ti"
+		},
+		{
+			"Carnet": 200242574,
+			"Nombre": "Teriann",
+			"Apellido": "Horan",
+			"Carrera": "Ing. en Alimentos",
+			"Password": "0vX3KZQZ"
+		},
+		{
+			"Carnet": 200837145,
+			"Nombre": "Frank",
+			"Apellido": "Jehu",
+			"Carrera": "Atleta",
+			"Password": "K8T2Vqub"
+		}
+	]
+}

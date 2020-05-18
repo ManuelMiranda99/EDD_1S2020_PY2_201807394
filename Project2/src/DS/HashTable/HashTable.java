@@ -22,6 +22,7 @@ import project2.Project2;
 public class HashTable {
     
     private int count;                      // Amount of items saved (n)
+    private int numberReport = 0;
     private final int SIZE = 45;            // Size of the Hash-Table (m)
     private HSimpleList[] listOfUsers;      // List of users in the table
     
@@ -51,6 +52,7 @@ public class HashTable {
         editUser.setLastName(_lastName);
         editUser.setCareer(_career);
         editUser.setPassword(_password);
+        Project2.auxiliarBlock.EditUser(editUser);
     }
     
     public User Search(int _id){
@@ -67,20 +69,26 @@ public class HashTable {
         int index = Hashing(_newUser.getId());
         if(listOfUsers[index] == null)
             listOfUsers[index] = new HSimpleList();
+        
         int auxInt = listOfUsers[index].getSize();
         listOfUsers[index].InsertUser(_newUser);
-        if(auxInt != listOfUsers[index].getSize())
+        
+        if(auxInt != listOfUsers[index].getSize()){
             count++;
+            Project2.auxiliarBlock.CreateUser(_newUser);
+        }            
     }
     
     public void DeleteNode(int _id){
         int index = Hashing(_id);
         if(listOfUsers[index] == null)
             return;
+        User user = listOfUsers[index].Search(_id).user;
         listOfUsers[index].Delete(_id);
         if(listOfUsers[index].getSize() == 0){
             listOfUsers[index] = null;
         }
+        Project2.auxiliarBlock.DeleteUser(user);
         count--;
     }
     
@@ -96,7 +104,7 @@ public class HashTable {
                 +       "<td>Nombre</td>"
                 +       "<td>Apellido</td>"
                 +       "<td>Carrera</td>"
-                +       "<td>Contraseña</td>"
+                +       "<td>Contrasenia</td>"
                 +   "</tr>";
         for(int i=0; i < this.listOfUsers.length ; i++){
             if(listOfUsers[i] != null){
@@ -106,7 +114,7 @@ public class HashTable {
         
         graph += "\n\t</table>>];\n\n}";
         
-        Project2.gGenerator.GenerateGraph(graph, "TablaDeUsuarios.txt");
-        
+        Project2.gGenerator.GenerateGraph(graph, "TablaDeUsuarios" + numberReport + ".txt");
+        numberReport++;
     }
 }

@@ -30,9 +30,13 @@ public class GraphvizGenerator {
     
     // Generate image in the place where the project generates
     public void GenerateGraph(String _dot, String _name){        
-        try {            
-            File file = new File(_name);
-            file.setWritable(true);
+        try {
+            File dir = new File("appLibrary//Reports");
+            dir.mkdirs();
+            
+            File file = new File(dir.getAbsoluteFile() + "/" + _name);
+            file.setWritable(true);            
+
             String routePNG = "";
             for(String var : file.getAbsolutePath().split("/")){
                 if(var.contains(".txt")){                    
@@ -57,10 +61,8 @@ public class GraphvizGenerator {
     
     public void PutInLabel(JLabel lbl){
         try {
-            sleep(1500);
-            Image img = new ImageIcon(lastPNG).getImage();
-            ImageIcon img2 = new ImageIcon(img.getScaledInstance(770, 500, Image.SCALE_SMOOTH));
-            lbl.setIcon(img2);
+            sleep(1500);                        
+            lbl.setIcon(new ImageIcon(lastPNG));
         } catch (Exception e) {
         }        
     }

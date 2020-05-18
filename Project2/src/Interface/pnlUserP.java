@@ -184,13 +184,14 @@ public class pnlUserP extends javax.swing.JPanel {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         
-        Project2.actualUser.setName(txtName.getText());
-        Project2.actualUser.setLastName(txtLastName.getText());
-        Project2.actualUser.setCareer(txtCareer.getText());
-        Project2.actualUser.setPassword(txtPass.getText());
-        
+        String name = txtName.getText();
+        String last = txtLastName.getText();
+        String career = txtCareer.getText();
+        String pass = txtPass.getText();                
         if(count != 0)
-            Project2.actualUser.setPassword(txtPassShow.getText());
+            pass = txtPassShow.getText();
+        
+        Project2.hashTable.EditUser(Project2.actualUser.getId(), name, last, career, pass);
         
     }//GEN-LAST:event_btnEditActionPerformed
 
